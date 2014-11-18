@@ -13,7 +13,9 @@ filetype plugin indent on
 
 " colour scheme
 set background=dark
-let g:solarized_termcolors = 256
+if !has('gui_running')
+    let g:solarized_termcolors = 256
+endif
 colorscheme solarized
 
 " slightly more normal leader
@@ -49,12 +51,15 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_new_tab = 0
 
 " gui font...
-" doesn't work, set in .gvimrc
-" set guifont = DejaVu\ Sans\ Mono:h14
+if has('gui_running')
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
+endif
 
-" shieeeet
-" @TODO add if for mac...
-set expandtab
+" work compliance...
+if has('mac')
+    " shieeeet
+    set expandtab
+endif
 set tabstop=4
 set shiftwidth=4
 
@@ -67,7 +72,10 @@ let g:session_autosave = 'yes'
 if !has('gui_running')
     let g:session_default_name = 'console'
 endif
-let g:sessions_project_path = '$HOME/work/projects'
+if has('mac')
+    " more work stuff
+    let g:sessions_project_path = '$HOME/work/projects'
+endif
 
 " airline
 set laststatus=2
