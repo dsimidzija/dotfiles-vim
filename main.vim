@@ -64,14 +64,14 @@ command! W w
 " vim-session
 let g:session_autoload = 'yes'
 let g:session_autosave = 'yes'
-if !has('gui')
+if !has('gui_running')
     let g:session_default_name = 'console'
 endif
 let g:sessions_project_path = '$HOME/work/projects'
 
 " airline
 set laststatus=2
-if has('gui')
+if has('gui_running')
     let g:airline_powerline_fonts = 1
 endif
 let g:airline_theme = 'powerlineish'
