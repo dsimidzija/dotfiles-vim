@@ -16,6 +16,7 @@ set background=dark
 if !has('gui_running')
     let g:solarized_termcolors = 256
 endif
+let g:solarized_italic=0
 colorscheme solarized
 
 " slightly more normal leader
