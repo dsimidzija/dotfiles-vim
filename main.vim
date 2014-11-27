@@ -56,7 +56,12 @@ let g:nerdtree_tabs_open_on_new_tab = 0
 
 " gui font...
 if has('gui_running')
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
+    if has('mac')
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+    else
+        " @TODO: figure out why setting font size breaks on gvim..
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
+    endif
 endif
 
 " work compliance...
