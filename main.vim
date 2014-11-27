@@ -47,6 +47,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" prevent grep from opening the first match
+let g:EasyGrepOpenWindowOnMatch = 0
+
 " nerdtree + vim-session workaround
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_new_tab = 0
