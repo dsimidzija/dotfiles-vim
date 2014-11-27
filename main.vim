@@ -125,3 +125,12 @@ let g:phpcomplete_mappings = {
 
 " syntastic
 let g:syntastic_javascript_checkers = ['jshint']
+
+" vim-gitgutter solarized fix
+if g:colors_name ==? "solarized"
+     highlight clear SignColumn
+     highlight GitGutterAdd ctermfg=green guifg=darkgreen
+     highlight GitGutterChange ctermfg=yellow guifg=darkyellow
+     highlight GitGutterDelete ctermfg=red guifg=darkred
+     highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
+endif
