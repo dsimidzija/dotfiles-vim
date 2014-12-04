@@ -49,3 +49,6 @@
 [submodule "vim-easygrep"]
 	path = vim-easygrep
 	url = https://github.com/dkprice/vim-easygrep.git
+[submodule "phpctags"]
+	path = phpctags
+	url = https://github.com/vim-php/phpctags.git

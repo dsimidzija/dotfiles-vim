@@ -100,6 +100,7 @@ endif
 let g:airline_theme = 'powerlineish'
 
 " easytags / tagbar
+let g:tagbar_phpctags_bin='$HOME/.vim/bundle/phpctags/phpctags'
 let g:easytags_async = 1
 let g:easytags_auto_highlight = 0
 nmap <leader>t :TagbarToggle<CR>
