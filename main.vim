@@ -33,7 +33,8 @@ set sidescrolloff=5
 set relativenumber
 
 " keys
-map <leader>n :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>1 :NERDTreeFind<CR>
 nnoremap <tab> %
 vnoremap <tab> %
 " vim very magic regex
