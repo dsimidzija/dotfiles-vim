@@ -18,6 +18,11 @@ if !has('gui_running')
 endif
 let g:solarized_italic=0
 colorscheme solarized
+" gnome terminal needs this for some reason, colorscheme destroys the
+" background
+if &background != 'dark'
+	set background=dark
+endif
 
 " slightly more normal leader
 let mapleader = ','
