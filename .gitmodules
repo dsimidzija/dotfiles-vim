@@ -46,3 +46,6 @@
 [submodule "vim-twig"]
 	path = vim-twig
 	url = https://github.com/evidens/vim-twig.git
+[submodule "vim-easygrep"]
+	path = vim-easygrep
+	url = https://github.com/dkprice/vim-easygrep.git
