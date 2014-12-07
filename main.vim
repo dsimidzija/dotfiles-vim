@@ -74,8 +74,8 @@ if has('gui_running')
     if has('mac')
         set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
     else
-        " @TODO: figure out why setting font size breaks on gvim..
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
+        " apparently the semicolon breaks gvim..
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
     endif
 endif
 
