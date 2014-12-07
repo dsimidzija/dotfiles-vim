@@ -90,7 +90,7 @@ set shiftwidth=4
 " feck off
 command! W w
 " edit config in a new tab
-cabbrev conf tabnew ~/.vim/bundle/main.vim
+command! Conf tabnew ~/.vim/bundle/main.vim
 
 " vim-session
 let g:session_autoload = 'yes'
