@@ -64,6 +64,10 @@ let g:EasyGrepRecursive = 1
 " nerdtree + vim-session workaround
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_new_tab = 0
+" single click folder opening
+let g:NERDTreeMouseMode = 2
+" chdir vim when nerdtree is chdir'd
+let g:NERDTreeChDirMode = 2
 
 " gui font...
 if has('gui_running')
