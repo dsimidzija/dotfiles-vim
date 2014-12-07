@@ -57,7 +57,7 @@ nnoremap <C-l> <C-w>l
 let g:EasyGrepCommand = 1
 let g:EasyGrepEveryMatch = 0
 let g:EasyGrepJumpToMatch = 0
-let g:EasyGrepOpenWindowOnMatch = 0
+let g:EasyGrepOpenWindowOnMatch = 1
 let g:EasyGrepRecursive = 1
 
 
