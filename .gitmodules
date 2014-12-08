@@ -52,3 +52,6 @@
 [submodule "phpctags"]
 	path = phpctags
 	url = https://github.com/vim-php/phpctags.git
+[submodule "vim-nerdtree-tabs"]
+	path = vim-nerdtree-tabs
+	url = https://github.com/jistr/vim-nerdtree-tabs.git

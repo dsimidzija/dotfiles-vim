@@ -38,8 +38,8 @@ set sidescrolloff=5
 set relativenumber
 
 " keys
-nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>1 :NERDTreeFind<CR>
+nmap <leader>n :NERDTreeTabsToggle<CR>
+nmap <leader>1 :NERDTreeTabsFind<CR>
 nnoremap <tab> %
 vnoremap <tab> %
 " vim very magic regex
@@ -64,6 +64,7 @@ let g:EasyGrepRecursive = 1
 " nerdtree + vim-session workaround
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_new_tab = 0
+let g:nerdtree_tabs_focus_on_files = 1
 " single click folder opening
 let g:NERDTreeMouseMode = 2
 " chdir vim when nerdtree is chdir'd
