@@ -161,3 +161,7 @@ if exists("g:colors_name") && g:colors_name ==? "solarized"
      highlight GitGutterDelete ctermfg=red guifg=darkred
      highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 endif
+
+" CtrlP stuff
+let g:ctrlp_by_filename = 1
+let g:ctrlp_use_caching = 1
