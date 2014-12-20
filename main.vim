@@ -1,6 +1,12 @@
 
 set nocompatible
 
+" automatically reload config when saving it
+augroup myvimrc
+   au!
+   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc,main.vim source $MYVIMRC
+augroup END
+
 " workaround for neocomplete when lua not present
 if !has('lua')
     let g:loaded_neocomplete = 1
