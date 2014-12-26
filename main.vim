@@ -69,6 +69,8 @@ let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepOpenWindowOnMatch = 1
 let g:EasyGrepRecursive = 1
 
+" fix incorrect filedetection for markdown
+autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " nerdtree + vim-session workaround
 let g:nerdtree_tabs_open_on_gui_startup = 0
