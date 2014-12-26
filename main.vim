@@ -7,6 +7,9 @@ augroup myvimrc
    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc,main.vim source $MYVIMRC
 augroup END
 
+" forgot sudo...
+cmap w!! w !sudo tee >/dev/null %
+
 " workaround for neocomplete when lua not present
 if !has('lua')
     let g:loaded_neocomplete = 1
