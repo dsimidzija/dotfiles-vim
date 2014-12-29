@@ -24,4 +24,7 @@ You may or may not need one or more of the following:
  * exuberant-ctags
  * patched fonts for vim-airline
 
+After checking out all the submodules, go to ~/.vim/bundle/phpctags
+and run `make`.
+
 [pathogen]: https://github.com/tpope/vim-pathogen
