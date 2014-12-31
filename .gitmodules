@@ -55,3 +55,9 @@
 [submodule "vim-nerdtree-tabs"]
 	path = vim-nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
+[submodule "vim-surround"]
+	path = vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim-repeat"]
+	path = vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
