@@ -61,6 +61,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap <C-g> <C-]> " go to tag, work around ] in shortcut
 
 " prevent grep from opening the first match
 let g:EasyGrepCommand = 1
@@ -127,10 +128,6 @@ let g:tagbar_phpctags_bin='$HOME/.vim/bundle/phpctags/phpctags'
 let g:easytags_async = 1
 let g:easytags_auto_highlight = 0
 nmap <leader>t :TagbarToggle<CR>
-
-" supertab
-let g:SuperTabDefaultCompletionType = "context"
-nnoremap <C-g> <C-]> " go to tag, work around ] in shortcut
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
