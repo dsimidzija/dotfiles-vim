@@ -130,14 +130,17 @@ endif
 let g:airline_theme = 'powerlineish'
 
 " easytags / tagbar
+set tags=./.vimtags;/,vimtags;/,./tags;/,tags;/,~/.vimtags
 let g:tagbar_phpctags_bin='$HOME/.vim/bundle/phpctags/phpctags'
 let g:easytags_async = 1
 let g:easytags_auto_highlight = 0
+let g:easytags_dynamic_files = 1
 nmap <leader>t :TagbarToggle<CR>
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_delimiter = 1
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
