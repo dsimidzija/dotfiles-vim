@@ -61,6 +61,12 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" visual shifting
+vnoremap < <gv
+vnoremap > >gv
+" fix syntax highlighting
+noremap <F12> <Esc>:syntax sync fromstart<CR>
+inoremap <F12> <C-o>:syntax sync fromstart<CR>
 nnoremap <C-g> <C-]> " go to tag, work around ] in shortcut
 
 " prevent grep from opening the first match
