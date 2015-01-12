@@ -49,8 +49,7 @@ set relativenumber
 " keys
 nmap <leader>n :NERDTreeTabsToggle<CR>
 nmap <leader>1 :NERDTreeTabsFind<CR>
-nnoremap <tab> %
-vnoremap <tab> %
+nnoremap <tab> :set hlsearch!<CR>:set hlsearch?<CR>
 " vim very magic regex
 nnoremap / /\v
 vnoremap / /\v
