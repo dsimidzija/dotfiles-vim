@@ -184,3 +184,9 @@ endif
 " CtrlP stuff
 let g:ctrlp_by_filename = 1
 let g:ctrlp_use_caching = 1
+
+" easymotion highlight colors
+highlight link EasyMotionTarget Search
+highlight link EasyMotionTarget2First Search
+highlight link EasyMotionTarget2Second Search
+highlight link EasyMotionShade Comment
