@@ -101,6 +101,8 @@ endif
 if has('mac')
     " shieeeet
     set expandtab
+    autocmd BufRead,BufNewFile *.cson set ft=coffee
+    autocmd FileType coffee setlocal noexpandtab
 endif
 set tabstop=4
 set shiftwidth=4
