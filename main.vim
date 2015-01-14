@@ -49,7 +49,7 @@ set relativenumber
 " keys
 nmap <leader>n :NERDTreeTabsToggle<CR>
 nmap <leader>1 :NERDTreeTabsFind<CR>
-nnoremap <tab> :set hlsearch!<CR>:set hlsearch?<CR>
+nnoremap <F12> :set hlsearch!<CR>:set hlsearch?<CR>
 " vim very magic regex
 nnoremap / /\v
 vnoremap / /\v
@@ -64,8 +64,8 @@ nnoremap <C-l> <C-w>l
 vnoremap < <gv
 vnoremap > >gv
 " fix syntax highlighting
-noremap <F12> <Esc>:syntax sync fromstart<CR>
-inoremap <F12> <C-o>:syntax sync fromstart<CR>
+noremap <F5> <Esc>:syntax sync fromstart<CR>
+inoremap <F5> <C-o>:syntax sync fromstart<CR>
 nnoremap <C-g> <C-]> " go to tag, work around ] in shortcut
 
 " prevent grep from opening the first match
