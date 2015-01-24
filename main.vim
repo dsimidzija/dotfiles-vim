@@ -130,12 +130,14 @@ if has('gui_running')
 endif
 let g:airline_theme = 'powerlineish'
 
-" easytags / tagbar
+" easytags / tagbar / coffeetags
 set tags=./.vimtags;/,vimtags;/,./tags;/,tags;/,~/.vimtags
 let g:tagbar_phpctags_bin='$HOME/.vim/bundle/phpctags/phpctags'
 let g:easytags_async = 1
 let g:easytags_auto_highlight = 0
 let g:easytags_dynamic_files = 1
+let g:CoffeeAutoTagFile = '.vimtags'
+let g:CoffeeAutoTagIncludeVars = 0
 nmap <leader>t :TagbarToggle<CR>
 
 " neocomplete

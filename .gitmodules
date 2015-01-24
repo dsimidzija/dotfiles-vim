@@ -67,3 +67,6 @@
 [submodule "vim-easymotion"]
 	path = vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule "CoffeeTags"]
+	path = CoffeeTags
+	url = https://github.com/lukaszkorecki/CoffeeTags.git
