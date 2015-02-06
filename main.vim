@@ -140,6 +140,10 @@ let g:CoffeeAutoTagFile = '.vimtags'
 let g:CoffeeAutoTagIncludeVars = 0
 nmap <leader>t :TagbarToggle<CR>
 
+" easygrep
+let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?"
+let g:EasyGrepWindow = 1 " locationlist; fixes issue with tagbar
+
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
