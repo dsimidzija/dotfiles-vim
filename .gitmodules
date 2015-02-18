@@ -76,3 +76,15 @@
 [submodule "tagbar-phpctags.vim"]
 	path = tagbar-phpctags.vim
 	url = https://github.com/vim-php/tagbar-phpctags.vim.git
+[submodule "vim-soy"]
+	path = vim-soy
+	url = https://github.com/duganchen/vim-soy.git
+[submodule "vim-less"]
+	path = vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "vim-css-color"]
+	path = vim-css-color
+	url = https://github.com/skammer/vim-css-color.git
+[submodule "detectindent"]
+	path = detectindent
+	url = https://github.com/ciaranm/detectindent.git
