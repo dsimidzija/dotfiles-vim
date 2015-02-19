@@ -85,6 +85,3 @@
 [submodule "vim-css-color"]
 	path = vim-css-color
 	url = https://github.com/skammer/vim-css-color.git
-[submodule "detectindent"]
-	path = detectindent
-	url = https://github.com/ciaranm/detectindent.git
