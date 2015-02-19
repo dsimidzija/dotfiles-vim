@@ -85,3 +85,6 @@
 [submodule "vim-css-color"]
 	path = vim-css-color
 	url = https://github.com/skammer/vim-css-color.git
+[submodule "vim-sleuth"]
+	path = vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
