@@ -196,3 +196,6 @@ highlight link EasyMotionTarget Search
 highlight link EasyMotionTarget2First Search
 highlight link EasyMotionTarget2Second Search
 highlight link EasyMotionShade Comment
+
+" annoying piece of shite
+autocmd FileType soy setlocal foldmethod=manual
