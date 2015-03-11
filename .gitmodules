@@ -88,3 +88,6 @@
 [submodule "vim-sleuth"]
 	path = vim-sleuth
 	url = https://github.com/tpope/vim-sleuth.git
+[submodule "gitv"]
+	path = gitv
+	url = https://github.com/gregsexton/gitv.git
