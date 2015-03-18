@@ -199,3 +199,8 @@ highlight link EasyMotionShade Comment
 
 " annoying piece of shite
 autocmd FileType soy setlocal foldmethod=manual
+" gitv
+autocmd FileType git setlocal foldmethod=manual
+
+" fixes window movement keys with gitv
+let g:Gitv_DoNotMapCtrlKey = 1
