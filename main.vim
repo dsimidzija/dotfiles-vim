@@ -141,7 +141,7 @@ let g:CoffeeAutoTagIncludeVars = 0
 nmap <leader>t :TagbarToggle<CR>
 
 " easygrep
-let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?"
+let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map"
 let g:EasyGrepWindow = 1 " locationlist; fixes issue with tagbar
 
 " neocomplete
