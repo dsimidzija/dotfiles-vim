@@ -82,8 +82,8 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_new_tab = 0
 let g:nerdtree_tabs_focus_on_files = 1
-" single click folder opening
-let g:NERDTreeMouseMode = 2
+" double click folder opening
+let g:NERDTreeMouseMode = 1
 " chdir vim when nerdtree is chdir'd
 let g:NERDTreeChDirMode = 2
 
