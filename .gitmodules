@@ -97,3 +97,6 @@
 [submodule "delimitMate"]
 	path = delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
+[submodule "vim-extradite"]
+	path = vim-extradite
+	url = https://github.com/int3/vim-extradite.git

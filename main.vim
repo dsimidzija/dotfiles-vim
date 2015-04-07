@@ -204,3 +204,6 @@ autocmd FileType git setlocal foldmethod=manual
 
 " fixes window movement keys with gitv
 let g:Gitv_DoNotMapCtrlKey = 1
+
+" vim-extradite
+let g:extradite_resize = 0
