@@ -100,3 +100,6 @@
 [submodule "vim-extradite"]
 	path = vim-extradite
 	url = https://github.com/int3/vim-extradite.git
+[submodule "vim-simple-todo"]
+	path = vim-simple-todo
+	url = https://github.com/vitalk/vim-simple-todo.git
