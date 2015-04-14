@@ -103,3 +103,6 @@
 [submodule "vim-simple-todo"]
 	path = vim-simple-todo
 	url = https://github.com/vitalk/vim-simple-todo.git
+[submodule "vim-jst"]
+	path = vim-jst
+	url = https://github.com/briancollins/vim-jst.git
