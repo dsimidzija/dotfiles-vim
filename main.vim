@@ -1,5 +1,6 @@
 
 set nocompatible
+set mouse=a
 
 " automatically reload config when saving it
 augroup myvimrc
