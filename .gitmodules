@@ -112,3 +112,6 @@
 [submodule "vim-bbye"]
 	path = vim-bbye
 	url = https://github.com/moll/vim-bbye.git
+[submodule "vim-mustache-handlebars"]
+	path = vim-mustache-handlebars
+	url = https://github.com/mustache/vim-mustache-handlebars.git
