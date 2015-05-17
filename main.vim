@@ -8,6 +8,8 @@ augroup myvimrc
    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc,main.vim source $MYVIMRC
 augroup END
 
+autocmd BufRead,BufNewFile *.cson set ft=coffee
+
 " forgot sudo...
 cmap w!! w !sudo tee >/dev/null %
 
@@ -104,7 +106,6 @@ endif
 if has('mac')
     " shieeeet
     set expandtab
-    autocmd BufRead,BufNewFile *.cson set ft=coffee
     autocmd FileType coffee setlocal noexpandtab
 endif
 set tabstop=4
