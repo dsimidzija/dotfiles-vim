@@ -115,3 +115,6 @@
 [submodule "vim-mustache-handlebars"]
 	path = vim-mustache-handlebars
 	url = https://github.com/mustache/vim-mustache-handlebars.git
+[submodule "vim-nerdtree-ignore"]
+	path = vim-nerdtree-ignore
+	url = https://github.com/dsimidzija/vim-nerdtree-ignore.git
