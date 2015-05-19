@@ -47,7 +47,7 @@ set scrolloff=3
 set sidescrolloff=5
 
 " relative line numbers
-set relativenumber
+set relativenumber number
 
 " keys
 nmap <leader>n :NERDTreeTabsToggle<CR>
