@@ -73,6 +73,7 @@
 [submodule "context_filetype.vim"]
 	path = context_filetype.vim
 	url = https://github.com/Shougo/context_filetype.vim.git
+	ignore = dirty
 [submodule "tagbar-phpctags.vim"]
 	path = tagbar-phpctags.vim
 	url = https://github.com/vim-php/tagbar-phpctags.vim.git
