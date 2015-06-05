@@ -68,6 +68,9 @@ nnoremap <C-l> <C-w>l
 " visual shifting
 vnoremap < <gv
 vnoremap > >gv
+" faster selection
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 " fix syntax highlighting
 noremap <F5> <Esc>:syntax sync fromstart<CR>
 inoremap <F5> <C-o>:syntax sync fromstart<CR>
