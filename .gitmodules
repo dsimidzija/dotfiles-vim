@@ -73,7 +73,7 @@
 [submodule "context_filetype.vim"]
 	path = context_filetype.vim
 	url = https://github.com/Shougo/context_filetype.vim.git
-	ignore = dirty
+	ignore = untracked
 [submodule "tagbar-phpctags.vim"]
 	path = tagbar-phpctags.vim
 	url = https://github.com/vim-php/tagbar-phpctags.vim.git
@@ -122,7 +122,7 @@
 [submodule "vim-expand-region"]
 	path = vim-expand-region
 	url = https://github.com/terryma/vim-expand-region.git
-	ignore = dirty
+	ignore = untracked
 [submodule "vim-textobj-line"]
 	path = vim-textobj-line
 	url = https://github.com/kana/vim-textobj-line.git
