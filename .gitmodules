@@ -118,3 +118,6 @@
 [submodule "vim-nerdtree-ignore"]
 	path = vim-nerdtree-ignore
 	url = https://github.com/dsimidzija/vim-nerdtree-ignore.git
+[submodule "vim-expand-region"]
+	path = vim-expand-region
+	url = https://github.com/terryma/vim-expand-region.git
