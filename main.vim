@@ -75,6 +75,9 @@ vmap <C-v> <Plug>(expand_region_shrink)
 noremap <F5> <Esc>:syntax sync fromstart<CR>
 inoremap <F5> <C-o>:syntax sync fromstart<CR>
 nnoremap <C-g> <C-]> " go to tag, work around ] in shortcut
+" replace currently selected text with default register without yanking it
+vnoremap p "0p
+vnoremap P "0P
 
 " prevent grep from opening the first match
 let g:EasyGrepCommand = 1
