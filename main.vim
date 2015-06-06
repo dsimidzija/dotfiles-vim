@@ -2,23 +2,31 @@
 set nocompatible
 set mouse=a
 
+" dat window size
+set lines=999 columns=9999
+
 " automatically reload config when saving it
 augroup myvimrc
-   au!
-   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc,main.vim source $MYVIMRC
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc,main.vim source $MYVIMRC
 augroup END
 
-autocmd BufRead,BufNewFile *.cson set ft=coffee
+autocmd BufNewFile,BufRead *.cson set filetype=coffee
+" fix incorrect filedetection for markdown
+autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " forgot sudo...
 cmap w!! w !sudo tee >/dev/null %
 
 " workaround for neocomplete when lua not present
 if !has('lua')
-    let g:loaded_neocomplete = 1
+   let g:loaded_neocomplete = 1
 endif
 
-execute pathogen#infect()
+if !exists('s:pathogen_infected')
+    execute pathogen#infect()
+    let s:pathogen_infected = 1
+endif
 
 syntax on
 filetype plugin indent on
@@ -72,7 +80,7 @@ vnoremap > >gv
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 " fix syntax highlighting
-noremap <F5> <Esc>:syntax sync fromstart<CR>
+nnoremap <F5> :syntax sync fromstart<CR>
 inoremap <F5> <C-o>:syntax sync fromstart<CR>
 nnoremap <C-g> <C-]> " go to tag, work around ] in shortcut
 " replace currently selected text with default register without yanking it
@@ -85,9 +93,6 @@ let g:EasyGrepEveryMatch = 0
 let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepOpenWindowOnMatch = 1
 let g:EasyGrepRecursive = 1
-
-" fix incorrect filedetection for markdown
-autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " nerdtree + vim-session workaround
 let g:nerdtree_tabs_open_on_gui_startup = 0
@@ -123,6 +128,7 @@ command! W w
 command! Conf tabnew ~/.vim/bundle/main.vim
 
 " vim-session
+set sessionoptions-=help,options
 let g:session_autoload = 'yes'
 let g:session_autosave = 'yes'
 let g:session_default_to_last = 1
