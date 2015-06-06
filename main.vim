@@ -50,8 +50,8 @@ set sidescrolloff=5
 set relativenumber number
 
 " keys
-nmap <leader>n :NERDTreeTabsToggle<CR>
-nmap <leader>1 :NERDTreeTabsFind<CR>
+nmap <leader>n <plug>NERDTreeTabsToggle<CR>
+nmap <leader>1 <plug>NERDTreeTabsFind<CR>
 nnoremap <F12> :set hlsearch!<CR>:set hlsearch?<CR>
 nnoremap <leader>bd :Bdelete<CR>
 nnoremap <leader>BD :bufdo :Bdelete<CR>
@@ -125,6 +125,7 @@ command! Conf tabnew ~/.vim/bundle/main.vim
 " vim-session
 let g:session_autoload = 'yes'
 let g:session_autosave = 'yes'
+let g:session_default_to_last = 1
 if !has('gui_running')
     let g:session_default_name = 'console'
 endif
@@ -187,6 +188,7 @@ let g:phpcomplete_mappings = {
 " ask on stack how to call ToggleStripWhitespaceOnSave for all buffers
 
 " syntastic
+let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['jshint']
 
 " vim-gitgutter solarized fix
