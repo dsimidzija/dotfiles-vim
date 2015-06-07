@@ -102,6 +102,7 @@ let g:nerdtree_tabs_focus_on_files = 1
 let g:NERDTreeMouseMode = 1
 " chdir vim when nerdtree is chdir'd
 let g:NERDTreeChDirMode = 2
+let g:NERDTreeShowLineNumbers = 1
 
 " gui font...
 if has('gui_running')
