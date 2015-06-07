@@ -2,9 +2,6 @@
 set nocompatible
 set mouse=a
 
-" dat window size
-set lines=999 columns=9999
-
 " automatically reload config when saving it
 augroup myvimrc
     au!
