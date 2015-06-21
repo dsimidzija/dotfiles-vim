@@ -28,6 +28,12 @@ endif
 syntax on
 filetype plugin indent on
 
+" statusbar, tabline
+set laststatus=2
+set showtabline=2
+" prefer text tabs instead of gui
+set guioptions-=e
+
 " colour scheme
 set background=dark
 if !has('gui_running')
@@ -139,7 +145,6 @@ if has('mac')
 endif
 
 " airline
-set laststatus=2
 if has('gui_running')
     let g:airline_powerline_fonts = 1
 endif
