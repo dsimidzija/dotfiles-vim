@@ -1,0 +1,61 @@
+# vim: set noexpandtab :
+
+snippet req
+	${1:#:object} = require('$1')
+
+snippet log
+alias cons,log
+	console.log '`expand('%:t')`[`line('.')+1`]: ${1:var}${0}', $1
+
+snippet dbg
+alias dbg
+options indent
+	${1:TARGET}
+	console.log '`expand('%:t')`[`line('.')+1`]: $1${0}', $1
+
+snippet function
+abbr fun,func
+alias function
+options indent
+	(${1:#:params}) ->
+		${0}
+
+snippet async_parallel
+abbr parallel
+alias para
+options indent
+	async.parallel {
+		${1:first}: (parallelNext) ->
+			parallelNext null
+		${2:second}: (parallelNext) ->
+			parallelNext null
+	}, (err, results) ->
+		return next err if err
+		${0}
+
+snippet async_waterfall
+abbr waterfall
+alias wfall
+options indent
+	async.waterfall [
+		(next) ->
+			next null
+		(next) ->
+			next null
+	], (err, results) ->
+		return next err if err
+		${0}
+
+snippet async_series
+abbr series
+alias series,srs
+options indent
+	async.series [
+		(seriesNext) ->
+			seriesNext null
+		(seriesNext) ->
+			seriesNext null
+	], (err, results) ->
+		return next err if err
+		${0}
+
