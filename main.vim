@@ -64,8 +64,8 @@ set relativenumber number
 nmap <leader>n <plug>NERDTreeTabsToggle<CR>
 nmap <leader>1 <plug>NERDTreeTabsFind<CR>
 nnoremap <F12> :set hlsearch!<CR>:set hlsearch?<CR>
-nnoremap <leader>bd :Bdelete<CR>
-nnoremap <leader>BD :bufdo :Bdelete<CR>
+nnoremap <leader>qq :Bdelete<CR>
+nnoremap <leader>QQ :bufdo :Bdelete<CR>
 " vim very magic regex
 nnoremap / /\v
 vnoremap / /\v
