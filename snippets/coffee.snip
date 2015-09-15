@@ -1,7 +1,7 @@
 # vim: set noexpandtab :
 
 snippet req
-	${1:#:object} = require('$1')
+	${1:#:object} = require '$1'
 
 snippet log
 alias cons,log
@@ -25,10 +25,10 @@ abbr parallel
 alias para
 options indent
 	async.parallel {
-		${1:first}: (parallelNext) ->
-			parallelNext null
-		${2:second}: (parallelNext) ->
-			parallelNext null
+		${1:first}: (next) ->
+			next null
+		${2:second}: (next) ->
+			next null
 	}, (err, results) ->
 		return next err if err
 		${0}
@@ -51,10 +51,10 @@ abbr series
 alias series,srs
 options indent
 	async.series [
-		(seriesNext) ->
-			seriesNext null
-		(seriesNext) ->
-			seriesNext null
+		(next) ->
+			next null
+		(next) ->
+			next null
 	], (err, results) ->
 		return next err if err
 		${0}
