@@ -62,6 +62,7 @@ set relativenumber number
 
 " keys
 nmap <leader>n <plug>NERDTreeTabsToggle<CR>
+nmap <F2> <plug>NERDTreeTabsToggle<CR>
 nmap <leader>1 <plug>NERDTreeTabsFind<CR>
 nnoremap <F12> :set hlsearch!<CR>:set hlsearch?<CR>
 nnoremap <leader>qq :Bdelete<CR>
