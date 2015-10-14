@@ -112,7 +112,7 @@ let g:NERDTreeShowLineNumbers = 1
 if has('gui_running')
     if has('mac')
         "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
-        set guifont=Hack:h13
+        set guifont=Hack\ Regular:h14
     else
         " apparently the semicolon breaks gvim..
         "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
