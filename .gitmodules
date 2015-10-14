@@ -139,3 +139,6 @@
 [submodule "neosnippet.vim"]
 	path = neosnippet.vim
 	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "vim-windowswap"]
+	path = vim-windowswap
+	url = https://github.com/wesQ3/vim-windowswap.git
