@@ -142,3 +142,6 @@
 [submodule "vim-windowswap"]
 	path = vim-windowswap
 	url = https://github.com/wesQ3/vim-windowswap.git
+[submodule "vim-rails"]
+	path = vim-rails
+	url = https://github.com/tpope/vim-rails.git

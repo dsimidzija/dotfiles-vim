@@ -249,3 +249,7 @@ let g:Gitv_DoNotMapCtrlKey = 1
 
 " vim-extradite
 let g:extradite_resize = 0
+
+" syntastic keeps showing this stuping message for <% end %> erb
+let g:syntastic_eruby_ruby_quiet_messages =
+      \ {'regex': 'possibly useless use of a variable in void context'}
