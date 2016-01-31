@@ -7,11 +7,22 @@ snippet log
 alias cons,log
 	console.log '`expand('%:t')`[`line('.')+1`]: ${1:var}${0}', $1
 
+snippet logm
+alias consm
+	c${0}onsole.log '`expand('%:t')`[`line('.')+1`]: ${1:var}'
+
 snippet dbg
 alias dbg
 options indent
 	${1:TARGET}
 	console.log '`expand('%:t')`[`line('.')+1`]: $1${0}', $1
+
+snippet insp
+alias insp
+options indent
+	d${0}o ->
+		_u = require 'util'
+		console.log _u.inspect(${1:var}, {showHidden: false, depth: null})
 
 snippet function
 abbr fun,func
