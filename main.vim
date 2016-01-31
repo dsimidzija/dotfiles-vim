@@ -60,6 +60,9 @@ set sidescrolloff=5
 " relative line numbers
 set relativenumber number
 
+" enable smartcase search
+set smartcase
+
 " keys
 nnoremap <leader>n <plug>NERDTreeTabsToggle<CR>
 nnoremap <F1> <nop>
@@ -79,6 +82,12 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" easy tab navigation
+map <S-H> gT
+map <S-L> gt
+" fix wrapped lines up/down navigation
+noremap j gj
+noremap k gk
 " visual shifting
 vnoremap < <gv
 vnoremap > >gv
