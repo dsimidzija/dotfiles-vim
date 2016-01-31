@@ -90,6 +90,11 @@ nnoremap <C-g> <C-]> " go to tag, work around ] in shortcut
 " replace currently selected text with default register without yanking it
 vnoremap p "0p
 vnoremap P "0P
+" move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+" easy ymd
+imap <Leader>ymd <C-R>=strftime("%Y-%m-%d")<CR>
 
 " prevent grep from opening the first match
 let g:EasyGrepCommand = 1
