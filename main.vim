@@ -61,10 +61,12 @@ set sidescrolloff=5
 set relativenumber number
 
 " keys
-nmap <leader>n <plug>NERDTreeTabsToggle<CR>
-nmap <F2> <plug>NERDTreeTabsToggle<CR>
-nmap <leader>1 <plug>NERDTreeTabsFind<CR>
+nnoremap <leader>n <plug>NERDTreeTabsToggle<CR>
+nnoremap <F1> <nop>
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F10> :GrepOptions<CR>
 nnoremap <F12> :set hlsearch!<CR>:set hlsearch?<CR>
+nmap <leader>1 :NERDTreeFind<CR>
 nnoremap <leader>qq :Bdelete<CR>
 nnoremap <leader>QQ :bufdo :Bdelete<CR>
 " vim very magic regex
