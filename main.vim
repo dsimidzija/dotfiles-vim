@@ -33,6 +33,8 @@ set laststatus=2
 set showtabline=2
 " prefer text tabs instead of gui
 set guioptions-=e
+" show cursorline
+set cursorline
 
 " colour scheme
 set background=dark
