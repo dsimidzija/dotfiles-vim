@@ -3,12 +3,15 @@
 snippet req
 	${1:#:object} = require '$1'
 
+snippet greq
+	goog.require '${1}'
+
 snippet log
 alias cons,log
 	console.log '`expand('%:t')`[`line('.')+1`]: ${1:var}${0}', $1
 
-snippet logm
-alias consm
+snippet msg
+alias msg
 	c${0}onsole.log '`expand('%:t')`[`line('.')+1`]: ${1:var}'
 
 snippet dbg
@@ -24,12 +27,44 @@ options indent
 		_u = require 'util'
 		console.log _u.inspect(${1:var}, {showHidden: false, depth: null})
 
-snippet function
-abbr fun,func
+snippet stack
+	c${0}onsole.log '`expand('%:t')`[`line('.')+1`] STACK:', new Error().stack
+
+snippet fun
+abbr func,function
 alias function
+options indent
+	${1:name} = (${2:#:params}) ->
+		${0}
+		return
+
+snippet meth
+abbr method
+alias method
+options indent
+	###*
+		${3:#:annotations}
+	###
+	${1:name}: (${2:#:params}) ->
+		${0}
+		return
+
+snippet cb
+abbr callback
 options indent
 	(${1:#:params}) ->
 		${0}
+
+snippet ano
+abbr anno,annotation
+options indent
+	###*
+		${0}
+	###
+
+snippet todo
+options indent
+	# @TODO: ${0}
 
 snippet async_parallel
 abbr parallel
