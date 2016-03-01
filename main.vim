@@ -46,7 +46,7 @@ colorscheme solarized
 " gnome terminal needs this for some reason, colorscheme destroys the
 " background
 if &background != 'dark'
-	set background=dark
+    set background=dark
 endif
 
 " slightly more normal leader
