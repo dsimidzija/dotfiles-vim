@@ -185,6 +185,9 @@ nmap <leader>t :TagbarToggle<CR>
 
 " easygrep
 let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map"
+if has('mac')
+  let g:EasyGrepFilesToExclude = g:EasyGrepFilesToExclude.',*.js,*.css'
+endif
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
 let g:EasyGrepWindow = 1 " locationlist; fixes issue with tagbar
 
