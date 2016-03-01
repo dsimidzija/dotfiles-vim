@@ -63,6 +63,7 @@ set sidescrolloff=5
 set relativenumber number
 
 " enable smartcase search
+set ignorecase
 set smartcase
 
 " keys
