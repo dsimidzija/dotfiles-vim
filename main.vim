@@ -157,7 +157,7 @@ command! Conf tabnew ~/.vim/bundle/main.vim
 
 " vim-session
 set sessionoptions-=help,options
-let g:session_autoload = 'prompt'
+let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 if !has('gui_running')
     let g:session_default_name = 'console'
