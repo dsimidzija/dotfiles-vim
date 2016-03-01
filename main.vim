@@ -78,6 +78,9 @@ nnoremap <leader>QQ :bufdo :Bdelete<CR>
 " vim very magic regex
 nnoremap / /\v
 vnoremap / /\v
+" CRO keyboard layout easier search
+nmap _ /
+vmap _ /
 " shortcircuit esc
 inoremap <silent> jj <ESC>
 " move around windows
