@@ -241,6 +241,9 @@ if exists("g:colors_name") && g:colors_name ==? "solarized"
      highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 endif
 
+" gitgutter performance (hopefully temp fix)
+let g:gitgutter_eager = 0
+
 " CtrlP stuff
 let g:ctrlp_by_filename = 1
 let g:ctrlp_max_files = 0
