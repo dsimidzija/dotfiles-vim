@@ -53,7 +53,7 @@ endif
 let mapleader = ','
 
 " use system clipboard
-set clipboard=unnamedplus,unnamed,autoselect
+set clipboard=unnamed,unnamedplus
 
 " context scroll
 set scrolloff=3
