@@ -20,6 +20,8 @@ if !has('lua')
    let g:loaded_neocomplete = 1
 endif
 
+let g:pathogen_disabled = [ 'tagbar' ]
+
 if !exists('s:pathogen_infected')
     execute pathogen#infect()
     let s:pathogen_infected = 1
@@ -186,7 +188,7 @@ let g:easytags_auto_highlight = 0
 let g:easytags_dynamic_files = 1
 let g:CoffeeAutoTagFile = '.vimtags'
 let g:CoffeeAutoTagIncludeVars = 0
-nmap <leader>t :TagbarToggle<CR>
+"nmap <leader>t :TagbarToggle<CR>
 
 " easygrep
 let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map"
