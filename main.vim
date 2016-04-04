@@ -154,7 +154,9 @@ set shiftwidth=4
 " feck off
 command! W w
 command! Wq wq
+command! WQ wq
 command! Wa wa
+command! WA wa
 " edit config in a new tab
 command! Conf tabnew ~/.vim/bundle/main.vim
 
