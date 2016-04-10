@@ -1,9 +1,6 @@
 [submodule "ctrlp.vim"]
 	path = ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "neocomplete.vim"]
-	path = neocomplete.vim
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "nerdcommenter"]
 	path = nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
@@ -136,9 +133,6 @@
 	path = vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
 	ignore = untracked
-[submodule "neosnippet.vim"]
-	path = neosnippet.vim
-	url = https://github.com/Shougo/neosnippet.vim.git
 [submodule "vim-windowswap"]
 	path = vim-windowswap
 	url = https://github.com/wesQ3/vim-windowswap.git
@@ -148,3 +142,9 @@
 [submodule "vim-airline-themes"]
 	path = vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "youcompleteme"]
+	path = youcompleteme
+	url = https://github.com/valloric/youcompleteme
+[submodule "ultisnips"]
+	path = ultisnips
+	url = https://github.com/SirVer/ultisnips.git

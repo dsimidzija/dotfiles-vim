@@ -15,11 +15,6 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 " forgot sudo...
 cmap w!! w !sudo tee >/dev/null %
 
-" workaround for neocomplete when lua not present
-if !has('lua')
-   let g:loaded_neocomplete = 1
-endif
-
 let g:pathogen_disabled = [ 'tagbar' ]
 
 if !exists('s:pathogen_infected')
@@ -198,37 +193,22 @@ endif
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
 let g:EasyGrepWindow = 1 " locationlist; fixes issue with tagbar
 
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_auto_delimiter = 1
-" neosnippets
-let g:neosnippet#disable_runtime_snippets = {
-\   '_' : 1,
-\ }
-let g:neosnippet#snippets_directory = '~/.vim/bundle/snippets/'
-" <TAB>: completion.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
+" UltiSnips
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/snippets']
+let g:UltiSnipsExpandTrigger="<s-cr>"
+let g:UltiSnipsListSnippets="<c-s-cr>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+
+" YouCompleteMe
+let g:ycm_collect_identifiers_from_tags_files = 1
+
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>neo_cr_function()<CR>
-function! s:neo_cr_function()
-    " return neocomplete#close_popup() . "\<CR>"
-    " For no inserting <CR> key.
-    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <BS>: close popup and delete backword char.
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 " phpcomplete
 let g:phpcomplete_mappings = {

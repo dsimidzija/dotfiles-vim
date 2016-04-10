@@ -1,0 +1,100 @@
+snippet req "require"
+${1:object} = require '$1'
+endsnippet
+
+snippet greq "google closure require"
+goog.require '${1}'
+endsnippet
+
+snippet cons "console log"
+console.log '`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}${0}', $1
+endsnippet
+
+snippet msg "console log (message only)"
+c${0}onsole.log '`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}'
+endsnippet
+
+snippet dbg
+${1:TARGET}
+console.log '`!v expand('%:t')`[`!v line('.')+1`]: $1${0}', $1
+endsnippet
+
+snippet insp "inspect"
+d${0}o ->
+	_u = require 'util'
+	console.log _u.inspect(${1:var}, {showHidden: false, depth: null})
+endsnippet
+
+snippet stack "console log stack only"
+c${0}onsole.log '`!v expand('%:t')`[`!v line('.')+1`] STACK:', new Error().stack
+endsnippet
+
+snippet fun "function"
+${1:name} = (${2:params}) ->
+	${0}
+	return
+endsnippet
+
+snippet bfun "bound function"
+${1:name} = (${2:params}) =>
+	${0}
+	return
+endsnippet
+
+snippet meth "method"
+###*
+	${3:annotations}
+###
+${1:name}: (${2:params}) ->
+	${0}
+	return
+endsnippet
+
+snippet cb "callback"
+(${1:params}) ->
+	${0}
+endsnippet
+
+snippet ano "google closure annotation"
+###*
+	${0}
+###
+endsnippet
+
+snippet todo "@TODO"
+# @TODO: ${0}
+endsnippet
+
+snippet para "async.parallel"
+async.parallel {
+	${1:first}: (next) ->
+		next null
+	${2:second}: (next) ->
+		next null
+}, (err, results) ->
+	return next err if err
+	${0}
+endsnippet
+
+snippet wfall "async.waterfall"
+async.waterfall [
+	(next) ->
+		next null
+	(next) ->
+		next null
+], (err, results) ->
+	return next err if err
+	${0}
+endsnippet
+
+snippet series "async.series"
+async.series [
+	(next) ->
+		next null
+	(next) ->
+		next null
+], (err, results) ->
+	return next err if err
+	${0}
+endsnippet
+
