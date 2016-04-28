@@ -12,6 +12,9 @@ autocmd BufNewFile,BufRead *.cson set filetype=coffee
 " fix incorrect filedetection for markdown
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
+" long live osx and not remembering window pos/size
+set lines=999 columns=9999
+
 " forgot sudo...
 cmap w!! w !sudo tee >/dev/null %
 
