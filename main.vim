@@ -109,6 +109,10 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 " easy ymd
 imap <Leader>ymd <C-R>=strftime("%Y-%m-%d")<CR>
+" quickfix open in new tab
+autocmd BufReadPost quickfix nnoremap <buffer> <C-t> <C-w><CR><C-w>T
+" easygrep
+nnoremap <C-e> :lopen<CR>
 
 " prevent grep from opening the first match
 let g:EasyGrepCommand = 1
