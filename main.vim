@@ -66,6 +66,8 @@ set smartcase
 " keys
 nnoremap <leader>n <plug>NERDTreeTabsToggle<CR>
 nnoremap <F1> <nop>
+inoremap <F1> <nop>
+vnoremap <F1> <nop>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F10> :GrepOptions<CR>
 nnoremap <F12> :set hlsearch!<CR>:set hlsearch?<CR>
