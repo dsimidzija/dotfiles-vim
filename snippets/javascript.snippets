@@ -1,0 +1,39 @@
+
+snippet cons "console log"
+console.log('`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}${0}', $1);
+endsnippet
+
+snippet fun "function"
+${1:name} = function (${2:params}) {
+	${0}
+	return;
+}
+endsnippet
+
+snippet bfun "bound function"
+${1:name} = (${2:params}) => {
+	${0}
+	return
+}
+endsnippet
+
+snippet cb "callback"
+function (${1:params}) {
+	${0}
+}
+endsnippet
+
+snippet todo "@TODO"
+// @TODO: ${0}
+endsnippet
+
+snippet para "async.parallel"
+parallel({
+	${0}${1:first}: (next) => {
+	},
+	${2:second}: (next) => {
+	}
+}, (err, results) => {
+	console.log('`!v expand('%:t')`[`!v line('.')+1`]: err, results', err, results);
+});
+endsnippet
