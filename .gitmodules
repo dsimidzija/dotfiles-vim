@@ -148,3 +148,6 @@
 [submodule "ultisnips"]
 	path = ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "vim-javascript-syntax"]
+	path = vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
