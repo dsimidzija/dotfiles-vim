@@ -157,3 +157,6 @@
 [submodule "vim-indent-guides"]
 	path = vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vim-multiple-cursors"]
+	path = vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
