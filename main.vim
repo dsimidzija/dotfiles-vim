@@ -212,6 +212,8 @@ let g:UltiSnipsExpandTrigger="<s-cr>"
 let g:UltiSnipsListSnippets="<c-s-cr>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" iterm workaround
+imap ✠ <s-cr>
 
 " YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
