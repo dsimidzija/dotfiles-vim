@@ -151,3 +151,6 @@
 [submodule "vim-javascript-syntax"]
 	path = vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "vim-visual-star-search"]
+	path = vim-visual-star-search
+	url = https://github.com/nelstrom/vim-visual-star-search.git
