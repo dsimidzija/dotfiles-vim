@@ -18,6 +18,9 @@ set lines=999 columns=9999
 " forgot sudo...
 cmap w!! w !sudo tee >/dev/null %
 
+" normal backspace
+set backspace=indent,eol,start
+
 let g:pathogen_disabled = [ 'tagbar' ]
 
 if !exists('s:pathogen_infected')
