@@ -202,7 +202,7 @@ if has('mac')
   let g:EasyGrepFilesToExclude = g:EasyGrepFilesToExclude.',*.js,*.css'
 endif
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
-let g:EasyGrepWindow = 1 " locationlist; fixes issue with tagbar
+let g:EasyGrepWindow = 0 " for compatibility with synctastic
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/snippets']
