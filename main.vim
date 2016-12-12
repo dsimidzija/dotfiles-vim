@@ -155,12 +155,7 @@ if has('gui_running')
     endif
 endif
 
-" work compliance...
-if has('mac')
-    " shieeeet
-    set expandtab
-    autocmd FileType coffee setlocal noexpandtab
-endif
+set expandtab
 set tabstop=4
 set shiftwidth=4
 
