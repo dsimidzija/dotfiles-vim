@@ -192,6 +192,9 @@ let g:tagbar_phpctags_bin='$HOME/.vim/bundle/phpctags/phpctags'
 let g:easytags_async = 1
 let g:easytags_auto_highlight = 0
 let g:easytags_dynamic_files = 1
+if has('mac')
+  let g:easytags_cmd = '/usr/local/bin/ctags'
+endif
 let g:CoffeeAutoTagFile = '.vimtags'
 let g:CoffeeAutoTagIncludeVars = 0
 "nmap <leader>t :TagbarToggle<CR>
