@@ -11,6 +11,8 @@ augroup END
 autocmd BufNewFile,BufRead *.cson set filetype=coffee
 " fix incorrect filedetection for markdown
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+" python syntax highlighting
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
 " long live osx and not remembering window pos/size
 set lines=999 columns=9999
@@ -25,6 +27,7 @@ let g:pathogen_disabled = [ 'tagbar' ]
 
 if !exists('s:pathogen_infected')
     execute pathogen#infect()
+    execute pathogen#helptags()
     let s:pathogen_infected = 1
 endif
 
@@ -79,6 +82,7 @@ nnoremap <F1> <nop>
 inoremap <F1> <nop>
 vnoremap <F1> <nop>
 nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F3> :Gstatus<CR>
 nnoremap <F10> :GrepOptions<CR>
 nnoremap <F12> :set hlsearch!<CR>:set hlsearch?<CR>
 nmap <leader>1 :NERDTreeFind<CR>
@@ -147,7 +151,7 @@ let g:NERDTreeShowLineNumbers = 1
 if has('gui_running')
     if has('mac')
         "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
-        set guifont=Hack\ Regular:h14
+        set guifont=Hack\ Regular:h15
     else
         " apparently the semicolon breaks gvim..
         "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
@@ -200,10 +204,7 @@ let g:CoffeeAutoTagIncludeVars = 0
 "nmap <leader>t :TagbarToggle<CR>
 
 " easygrep
-let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map"
-if has('mac')
-  let g:EasyGrepFilesToExclude = g:EasyGrepFilesToExclude.',*.js,*.css'
-endif
+let g:EasyGrepFilesToExclude="~*,.svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map"
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
 let g:EasyGrepWindow = 0 " for compatibility with synctastic
 
@@ -222,6 +223,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -287,3 +289,5 @@ let g:extradite_resize = 0
 " syntastic keeps showing this stuping message for <% end %> erb
 let g:syntastic_eruby_ruby_quiet_messages =
       \ {'regex': 'possibly useless use of a variable in void context'}
+
+source ~/.vim/bundle/python.vim
