@@ -1,0 +1,8 @@
+snippet imp "import"
+import ${1:object}
+endsnippet
+
+snippet cons "print debug"
+print '`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}'
+print $1${0}
+endsnippet
