@@ -291,3 +291,6 @@ let g:syntastic_eruby_ruby_quiet_messages =
       \ {'regex': 'possibly useless use of a variable in void context'}
 
 source ~/.vim/bundle/python.vim
+let g:pymode_folding = 0
+let g:pymode_rope = 0
+let g:pymode_virtualenv = 1
