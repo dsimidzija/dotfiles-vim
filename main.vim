@@ -59,11 +59,15 @@ endif
 let mapleader = ','
 
 " use system clipboard
-if has('unnamedplus')
-  set clipboard=unnamedplus,unnamed
-else
-  set clipboard=unnamed
-endif
+nnoremap <leader><leader>y "+yy
+vnoremap <leader><leader>y "+y
+noremap <leader><leader>p "+p
+inoremap <leader><leader>p <C-r>"
+"if has('unnamedplus')
+  "set clipboard=unnamedplus,unnamed
+"else
+  "set clipboard=unnamed
+"endif
 
 " context scroll
 set scrolloff=3
