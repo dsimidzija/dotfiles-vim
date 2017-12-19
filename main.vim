@@ -14,16 +14,13 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 " python syntax highlighting
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
-" long live osx and not remembering window pos/size
-set lines=999 columns=9999
-
 " forgot sudo...
 cmap w!! w !sudo tee >/dev/null %
 
 " normal backspace
 set backspace=indent,eol,start
 
-let g:pathogen_disabled = [ 'tagbar' ]
+let g:pathogen_disabled = [ 'tagbar', 'CoffeeTags' ]
 
 if !exists('s:pathogen_infected')
     execute pathogen#infect()
@@ -153,14 +150,7 @@ let g:NERDTreeShowLineNumbers = 1
 
 " gui font...
 if has('gui_running')
-    if has('mac')
-        "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
-        set guifont=Hack\ Regular:h15
-    else
-        " apparently the semicolon breaks gvim..
-        "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
-        set guifont=Hack\ 13
-    endif
+    set guifont=Hack\ 13
 endif
 
 set expandtab
@@ -183,8 +173,7 @@ let g:session_autosave = 'yes'
 if !has('gui_running')
     let g:session_default_name = 'console'
 endif
-if has('mac')
-    " more work stuff
+if isdirectory($HOME.'/work/projects')
     let g:sessions_project_path = '$HOME/work/projects'
 endif
 
@@ -200,9 +189,6 @@ let g:tagbar_phpctags_bin='$HOME/.vim/bundle/phpctags/phpctags'
 let g:easytags_async = 1
 let g:easytags_auto_highlight = 0
 let g:easytags_dynamic_files = 1
-if has('mac')
-  let g:easytags_cmd = '/usr/local/bin/ctags'
-endif
 let g:CoffeeAutoTagFile = '.vimtags'
 let g:CoffeeAutoTagIncludeVars = 0
 "nmap <leader>t :TagbarToggle<CR>

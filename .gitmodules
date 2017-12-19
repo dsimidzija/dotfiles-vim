@@ -10,6 +10,9 @@
 [submodule "phpcomplete.vim"]
 	path = phpcomplete.vim
 	url = https://github.com/shawncplus/phpcomplete.vim.git
+[submodule "splitjoin.vim"]
+	path = splitjoin.vim
+	url = https://github.com/AndrewRadev/splitjoin.vim.git
 [submodule "syntastic"]
 	path = syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -160,6 +163,3 @@
 [submodule "vim-multiple-cursors"]
 	path = vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
-[submodule "python-mode"]
-	path = python-mode
-	url = https://github.com/python-mode/python-mode.git
