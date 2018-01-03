@@ -9,8 +9,6 @@ augroup myvimrc
 augroup END
 
 autocmd BufNewFile,BufRead *.cson set filetype=coffee
-" fix incorrect filedetection for markdown
-autocmd BufNewFile,BufRead *.md set filetype=markdown
 " python syntax highlighting
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
@@ -19,6 +17,9 @@ cmap w!! w !sudo tee >/dev/null %
 
 " normal backspace
 set backspace=indent,eol,start
+
+" quickfix stopped closing automatically for some reason..
+:autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 
 let g:pathogen_disabled = [ 'tagbar', 'CoffeeTags' ]
 
@@ -56,15 +57,11 @@ endif
 let mapleader = ','
 
 " use system clipboard
-nnoremap <leader><leader>y "+yy
-vnoremap <leader><leader>y "+y
-noremap <leader><leader>p "+p
-inoremap <leader><leader>p <C-r>"
-"if has('unnamedplus')
-  "set clipboard=unnamedplus,unnamed
-"else
-  "set clipboard=unnamed
-"endif
+if has('unnamedplus')
+    set clipboard=unnamedplus,unnamed
+else
+    set clipboard=unnamed
+endif
 
 " context scroll
 set scrolloff=3
@@ -165,6 +162,8 @@ command! Wa wa
 command! WA wa
 " edit config in a new tab
 command! Conf tabnew ~/.vim/bundle/main.vim
+" edit snippet in a new tab
+command! -nargs=1 Snip tabnew ~/.vim/bundle/snippets/<args>.snippets
 
 " vim-session
 set sessionoptions-=help,options
@@ -194,7 +193,7 @@ let g:CoffeeAutoTagIncludeVars = 0
 "nmap <leader>t :TagbarToggle<CR>
 
 " easygrep
-let g:EasyGrepFilesToExclude="~*,.svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map"
+let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map,*.apib,htmlcov"
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
 let g:EasyGrepWindow = 0 " for compatibility with synctastic
 
@@ -225,8 +224,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " phpcomplete
 let g:phpcomplete_mappings = {
-  \ 'jump_to_def': ',g',
-  \ }
+    \ 'jump_to_def': ',g',
+    \ }
 
 " vim-better-whitespace
 " ask on stack how to call ToggleStripWhitespaceOnSave for all buffers
@@ -284,3 +283,8 @@ source ~/.vim/bundle/python.vim
 let g:pymode_folding = 0
 let g:pymode_rope = 0
 let g:pymode_virtualenv = 1
+
+" pandoc + pandoc markdown
+let g:pandoc#modules#disabled = ["folding", "bibliographies"]
+let g:pandoc#formatting#mode = "hA"
+
