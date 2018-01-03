@@ -43,9 +43,6 @@
 [submodule "vim-session"]
 	path = vim-session
 	url = https://github.com/xolox/vim-session.git
-[submodule "vim-twig"]
-	path = vim-twig
-	url = https://github.com/evidens/vim-twig.git
 [submodule "vim-easygrep"]
 	path = vim-easygrep
 	url = https://github.com/dkprice/vim-easygrep.git
@@ -62,9 +59,6 @@
 [submodule "vim-repeat"]
 	path = vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "vim-coffee-script"]
-	path = vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vim-easymotion"]
 	path = vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
@@ -81,9 +75,6 @@
 [submodule "vim-soy"]
 	path = vim-soy
 	url = https://github.com/duganchen/vim-soy.git
-[submodule "vim-less"]
-	path = vim-less
-	url = https://github.com/groenewege/vim-less.git
 [submodule "vim-css-color"]
 	path = vim-css-color
 	url = https://github.com/skammer/vim-css-color.git
@@ -105,9 +96,6 @@
 [submodule "vim-simple-todo"]
 	path = vim-simple-todo
 	url = https://github.com/vitalk/vim-simple-todo.git
-[submodule "vim-jst"]
-	path = vim-jst
-	url = https://github.com/briancollins/vim-jst.git
 [submodule "vim-togglelist"]
 	path = vim-togglelist
 	url = https://github.com/milkypostman/vim-togglelist.git
@@ -151,9 +139,6 @@
 [submodule "ultisnips"]
 	path = ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "vim-javascript-syntax"]
-	path = vim-javascript-syntax
-	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule "vim-visual-star-search"]
 	path = vim-visual-star-search
 	url = https://github.com/nelstrom/vim-visual-star-search.git
@@ -163,3 +148,12 @@
 [submodule "vim-multiple-cursors"]
 	path = vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "vim-polyglot"]
+	path = vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "vim-pandoc"]
+	path = vim-pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc.git
+[submodule "vim-pandoc-syntax"]
+	path = vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
