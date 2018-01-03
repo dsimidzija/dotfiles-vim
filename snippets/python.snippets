@@ -6,3 +6,12 @@ snippet cons "print debug"
 print '`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}'
 print $1${0}
 endsnippet
+
+snippet dbg "print to stderr"
+print('`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}${0}', $1, file=sys.stderr);
+endsnippet
+
+# format options https://github.com/adoxa/ansicon/blob/master/sequences.txt
+snippet flog "flask logging"
+log.info('\033[101m DEBUG \033[0m ${1:var} = %s${0} \n', $1)
+endsnippet
