@@ -10,6 +10,9 @@
 [submodule "phpcomplete.vim"]
 	path = phpcomplete.vim
 	url = https://github.com/shawncplus/phpcomplete.vim.git
+[submodule "python-mode"]
+	path = python-mode
+	url = https://github.com/python-mode/python-mode.git
 [submodule "splitjoin.vim"]
 	path = splitjoin.vim
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
