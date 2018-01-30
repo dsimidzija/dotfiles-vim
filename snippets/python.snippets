@@ -1,3 +1,7 @@
+snippet todo "create todo note"
+# @TODO: ${1}
+endsnippet
+
 snippet imp "import"
 import ${1:object}
 endsnippet
@@ -8,10 +12,12 @@ print $1${0}
 endsnippet
 
 snippet dbg "print to stderr"
+import sys
 print('`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}${0}', $1, file=sys.stderr);
 endsnippet
 
 # format options https://github.com/adoxa/ansicon/blob/master/sequences.txt
 snippet flog "flask logging"
+import logging; log = logging.getLogger(__name__)
 log.info('\033[101m DEBUG \033[0m ${1:var} = %s${0} \n', $1)
 endsnippet
