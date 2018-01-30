@@ -160,3 +160,6 @@
 [submodule "vim-pandoc-syntax"]
 	path = vim-pandoc-syntax
 	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
+[submodule "vim-table-mode"]
+	path = vim-table-mode
+	url = https://github.com/dhruvasagar/vim-table-mode.git
