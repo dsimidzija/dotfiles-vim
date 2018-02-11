@@ -233,6 +233,7 @@ let g:phpcomplete_mappings = {
 " syntastic
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_python_checkers = []
 
 " vim-gitgutter solarized fix
 if exists("g:colors_name") && g:colors_name ==? "solarized"
@@ -242,9 +243,6 @@ if exists("g:colors_name") && g:colors_name ==? "solarized"
      highlight GitGutterDelete ctermfg=red guifg=darkred
      highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 endif
-
-" gitgutter performance (hopefully temp fix)
-let g:gitgutter_eager = 0
 
 " CtrlP stuff
 let g:ctrlp_by_filename = 1
