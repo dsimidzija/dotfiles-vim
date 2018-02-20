@@ -9,8 +9,6 @@ augroup myvimrc
 augroup END
 
 autocmd BufNewFile,BufRead *.cson set filetype=coffee
-" python syntax highlighting
-autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
 " forgot sudo...
 cmap w!! w !sudo tee >/dev/null %
@@ -277,6 +275,7 @@ let g:extradite_resize = 0
 let g:syntastic_eruby_ruby_quiet_messages =
       \ {'regex': 'possibly useless use of a variable in void context'}
 
+let g:python_highlight_all=1
 source ~/.vim/bundle/python.vim
 let g:pymode_folding = 0
 let g:pymode_rope = 0
