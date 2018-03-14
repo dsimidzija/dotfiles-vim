@@ -19,7 +19,7 @@ set backspace=indent,eol,start
 " quickfix stopped closing automatically for some reason..
 :autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 
-let g:pathogen_disabled = [ 'tagbar', 'CoffeeTags' ]
+let g:pathogen_disabled = [ 'tagbar', 'CoffeeTags', 'python-mode' ]
 
 if !exists('s:pathogen_infected')
     execute pathogen#infect()
@@ -193,7 +193,7 @@ let g:CoffeeAutoTagIncludeVars = 0
 " easygrep
 let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map,*.apib,htmlcov"
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
-let g:EasyGrepWindow = 0 " for compatibility with synctastic
+let g:EasyGrepWindow = 0 " for compatibility with syntastic
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/snippets']
@@ -210,7 +210,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>g :YcmCompleter GoTo<CR>
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
