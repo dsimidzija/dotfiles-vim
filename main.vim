@@ -284,4 +284,5 @@ let g:pymode_virtualenv = 1
 " pandoc + pandoc markdown
 let g:pandoc#modules#disabled = ["folding", "bibliographies"]
 let g:pandoc#formatting#mode = "hA"
+let g:pandoc#filetypes#pandoc_markdown = 0
 
