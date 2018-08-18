@@ -1,6 +1,6 @@
 [submodule "ctrlp.vim"]
 	path = ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "nerdcommenter"]
 	path = nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
@@ -163,3 +163,12 @@
 [submodule "vim-table-mode"]
 	path = vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
+[submodule "vim-theme-papaya"]
+	path = vim-theme-papaya
+	url = https://github.com/HenryNewcomer/vim-theme-papaya.git
+[submodule "vim-gotham"]
+	path = vim-gotham
+	url = https://github.com/whatyouhide/vim-gotham.git
+[submodule "vim-devicons"]
+	path = vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons.git

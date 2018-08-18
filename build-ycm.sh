@@ -1,5 +1,6 @@
 #!/bin/bash
 
 cd youcompleteme/
-./install.sh --system-libclang --clang-completer --go-completer --js-completer
+git submodule update --init --recursive
+./install.py --system-libclang --clang-completer --go-completer --js-completer
 cd -

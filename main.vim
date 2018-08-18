@@ -44,7 +44,8 @@ if !has('gui_running')
     let g:solarized_termcolors = 256
 endif
 let g:solarized_italic=0
-colorscheme solarized
+"colorscheme solarized
+colorscheme papaya
 " gnome terminal needs this for some reason, colorscheme destroys the
 " background
 if &background != 'dark'
@@ -125,6 +126,9 @@ imap <Leader>ymd <C-R>=strftime("%Y-%m-%d")<CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <C-t> <C-w><CR><C-w>T
 " easygrep
 nnoremap <C-e> :lopen<CR>
+" quick way to add blank lines
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " prevent grep from opening the first match
 let g:EasyGrepCommand = 1
@@ -145,7 +149,8 @@ let g:NERDTreeShowLineNumbers = 1
 
 " gui font...
 if has('gui_running')
-    set guifont=Hack\ 13
+    "set guifont=Hack\ 13
+    set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
 endif
 
 set expandtab
@@ -235,11 +240,11 @@ let g:syntastic_python_checkers = []
 
 " vim-gitgutter solarized fix
 if exists("g:colors_name") && g:colors_name ==? "solarized"
-     highlight clear SignColumn
-     highlight GitGutterAdd ctermfg=green guifg=darkgreen
-     highlight GitGutterChange ctermfg=yellow guifg=darkyellow
-     highlight GitGutterDelete ctermfg=red guifg=darkred
-     highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
+    highlight clear SignColumn
+    highlight GitGutterAdd ctermfg=green guifg=darkgreen
+    highlight GitGutterChange ctermfg=yellow guifg=darkyellow
+    highlight GitGutterDelete ctermfg=red guifg=darkred
+    highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 endif
 
 " CtrlP stuff
@@ -286,3 +291,11 @@ let g:pandoc#modules#disabled = ["folding", "bibliographies"]
 let g:pandoc#formatting#mode = "hA"
 let g:pandoc#filetypes#pandoc_markdown = 0
 
+" used to format json in a buffer, as dumped by python in terminal
+function! JsonF()
+    %s/'/"/ge
+    %s/\vDecimal\("([0-9.]+)"\)/\1/ge
+    %!python -m json.tool
+endfunction
+
+command! Json call JsonF()
