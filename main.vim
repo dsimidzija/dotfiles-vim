@@ -125,17 +125,20 @@ imap <Leader>ymd <C-R>=strftime("%Y-%m-%d")<CR>
 " quickfix open in new tab
 autocmd BufReadPost quickfix nnoremap <buffer> <C-t> <C-w><CR><C-w>T
 " easygrep
-nnoremap <C-e> :lopen<CR>
+nnoremap <C-e> :copen<CR>
 " quick way to add blank lines
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
-" prevent grep from opening the first match
+" easygrep
 let g:EasyGrepCommand = 1
 let g:EasyGrepEveryMatch = 0
 let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepOpenWindowOnMatch = 1
 let g:EasyGrepRecursive = 1
+let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map,*.apib,htmlcov"
+let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
+let g:EasyGrepWindow = 0 " for compatibility with syntastic
 
 " nerdtree + vim-session workaround
 let g:nerdtree_tabs_open_on_gui_startup = 0
@@ -159,6 +162,7 @@ set shiftwidth=4
 
 " feck off
 command! W w
+command! Q q
 command! Wq wq
 command! WQ wq
 command! Wa wa
@@ -194,11 +198,6 @@ let g:easytags_dynamic_files = 1
 let g:CoffeeAutoTagFile = '.vimtags'
 let g:CoffeeAutoTagIncludeVars = 0
 "nmap <leader>t :TagbarToggle<CR>
-
-" easygrep
-let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map,*.apib,htmlcov"
-let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
-let g:EasyGrepWindow = 0 " for compatibility with syntastic
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/snippets']
@@ -238,14 +237,12 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = []
 
-" vim-gitgutter solarized fix
-if exists("g:colors_name") && g:colors_name ==? "solarized"
-    highlight clear SignColumn
-    highlight GitGutterAdd ctermfg=green guifg=darkgreen
-    highlight GitGutterChange ctermfg=yellow guifg=darkyellow
-    highlight GitGutterDelete ctermfg=red guifg=darkred
-    highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
-endif
+" vim-gitgutter
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green guifg=darkgreen
+highlight GitGutterChange ctermfg=yellow guifg=darkyellow
+highlight GitGutterDelete ctermfg=red guifg=darkred
+highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
 " CtrlP stuff
 let g:ctrlp_by_filename = 1
