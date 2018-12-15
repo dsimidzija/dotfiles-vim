@@ -1,6 +1,7 @@
 
 set nocompatible
 set mouse=a
+set nomousehide
 
 " automatically reload config when saving it
 augroup myvimrc
@@ -19,7 +20,7 @@ set backspace=indent,eol,start
 " quickfix stopped closing automatically for some reason..
 :autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 
-let g:pathogen_disabled = [ 'tagbar', 'CoffeeTags', 'python-mode' ]
+let g:pathogen_disabled = [ 'tagbar', 'CoffeeTags', 'python-mode', 'easytags.vim' ]
 
 if !exists('s:pathogen_infected')
     execute pathogen#infect()
@@ -136,7 +137,7 @@ let g:EasyGrepEveryMatch = 0
 let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepOpenWindowOnMatch = 1
 let g:EasyGrepRecursive = 1
-let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map,*.apib,htmlcov"
+let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map,*.apib,htmlcov,_build"
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
 let g:EasyGrepWindow = 0 " for compatibility with syntastic
 
@@ -192,6 +193,7 @@ let g:airline_theme = 'powerlineish'
 " easytags / tagbar / coffeetags
 set tags=./.vimtags;/,vimtags;/,./tags;/,tags;/,~/.vimtags
 let g:tagbar_phpctags_bin='$HOME/.vim/bundle/phpctags/phpctags'
+let g:easytags_suppress_ctags_warning = 1
 let g:easytags_async = 1
 let g:easytags_auto_highlight = 0
 let g:easytags_dynamic_files = 1
