@@ -172,3 +172,12 @@
 [submodule "vim-devicons"]
 	path = vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons.git
+[submodule "vim-terraform"]
+	path = vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
+[submodule "vim-kubernetes"]
+	path = vim-kubernetes
+	url = https://github.com/andrewstuart/vim-kubernetes.git
+[submodule "emmet-vim"]
+	path = emmet-vim
+	url = https://github.com/mattn/emmet-vim.git

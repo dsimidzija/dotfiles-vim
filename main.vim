@@ -137,7 +137,7 @@ let g:EasyGrepEveryMatch = 0
 let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepOpenWindowOnMatch = 1
 let g:EasyGrepRecursive = 1
-let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.js.map,*.apib,htmlcov,_build"
+let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.py.orig,*.js.map,*.apib,htmlcov,_build,build"
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
 let g:EasyGrepWindow = 0 " for compatibility with syntastic
 
