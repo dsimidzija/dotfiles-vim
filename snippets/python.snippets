@@ -20,6 +20,12 @@ import sys
 print('`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}${0}', $1, file=sys.stderr);
 endsnippet
 
+snippet dbgpretty "pretty json print"
+import json;
+print('`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}')
+print(json.dumps($1${0}, indent=4, sort_keys=True))
+endsnippet
+
 # format options https://github.com/adoxa/ansicon/blob/master/sequences.txt
 snippet flogi "flask logging"
 import logging; log = logging.getLogger(__name__)
