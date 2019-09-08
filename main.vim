@@ -216,6 +216,9 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+" virtualenv fixes
+let g:ycm_extra_conf_vim_data = []
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/ycm-settings.py'
 map <leader>g :YcmCompleter GoTo<CR>
 
 " Enable omni completion.
