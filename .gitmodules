@@ -181,3 +181,9 @@
 [submodule "emmet-vim"]
 	path = emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "dracula-vim-theme"]
+	path = dracula-vim-theme
+	url = https://github.com/dracula/vim.git
+[submodule "gruvbox-theme"]
+	path = gruvbox-theme
+	url = https://github.com/morhetz/gruvbox.git

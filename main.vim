@@ -46,7 +46,10 @@ if !has('gui_running')
 endif
 let g:solarized_italic=0
 "colorscheme solarized
-colorscheme papaya
+"colorscheme papaya
+"colorscheme dracula
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = "hard"
 " gnome terminal needs this for some reason, colorscheme destroys the
 " background
 if &background != 'dark'
