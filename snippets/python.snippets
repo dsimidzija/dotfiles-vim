@@ -11,18 +11,18 @@ import ${1:object}
 endsnippet
 
 snippet dbg "print debug"
-print('`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}')
+print('`!v expand('%:t')`[`!v line('.')+1`]: \033[101m${1:var}\033[0m')
 print($1${0})
 endsnippet
 
 snippet dbgerr "print to stderr"
 import sys
-print('`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}${0}', $1, file=sys.stderr);
+print('`!v expand('%:t')`[`!v line('.')+1`]: \033[101m${1:var}\033[0m${0}', $1, file=sys.stderr);
 endsnippet
 
-snippet dbgpretty "pretty json print"
+snippet jbg "pretty json print"
 import json;
-print('`!v expand('%:t')`[`!v line('.')+1`]: ${1:var}')
+print('`!v expand('%:t')`[`!v line('.')+1`]: \033[101m${1:var}\033[0m')
 print(json.dumps($1${0}, indent=4, sort_keys=True))
 endsnippet
 
