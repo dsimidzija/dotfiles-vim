@@ -2,6 +2,7 @@
 set nocompatible
 set mouse=a
 set nomousehide
+set autoread
 
 " automatically reload config when saving it
 augroup myvimrc
@@ -133,6 +134,8 @@ nnoremap <C-e> :copen<CR>
 " quick way to add blank lines
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+" surround shortcuts
+nmap ` ysiw`
 
 " easygrep
 let g:EasyGrepCommand = 1
@@ -185,6 +188,12 @@ if !has('gui_running')
 endif
 if isdirectory($HOME.'/work/projects')
     let g:sessions_project_path = '$HOME/work/projects'
+endif
+let s:hostname = substitute(system('hostname'), '\n', '', '')
+if s:hostname == "NEMATODA"
+    " workaround for the idiotic DELL XPS keyboard layout
+  noremap <PageUp> <nop>
+  noremap <PageDown> <nop>
 endif
 
 " airline
@@ -241,9 +250,13 @@ let g:phpcomplete_mappings = {
 " ask on stack how to call ToggleStripWhitespaceOnSave for all buffers
 
 " syntastic
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {'mode':'passive'}
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_python_checkers = []
+let g:syntastic_python_checkers = ['pylint']
+nnoremap <C-w>e :SyntasticCheck<CR>
+nnoremap <C-w>f :SyntasticToggleMode<CR>
 
 " vim-gitgutter
 highlight clear SignColumn
@@ -284,6 +297,10 @@ let g:extradite_resize = 0
 " syntastic keeps showing this stuping message for <% end %> erb
 let g:syntastic_eruby_ruby_quiet_messages =
       \ {'regex': 'possibly useless use of a variable in void context'}
+
+" validator
+let g:validator_python_checkers = ["flake8"]
+let g:validator_permament_sign = 1
 
 let g:python_highlight_all=1
 source ~/.vim/bundle/python.vim

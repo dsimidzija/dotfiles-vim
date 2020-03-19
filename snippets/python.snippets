@@ -29,11 +29,11 @@ endsnippet
 # format options https://github.com/adoxa/ansicon/blob/master/sequences.txt
 snippet flogi "flask logging"
 import logging; log = logging.getLogger(__name__)
-log.info('\033[101m DEBUG \033[0m ${1:var} = %s${0} \n', $1)
+log.info('\033[101m DEBUG \033[0m (${1:var}) = %s${0} \n', ($1,))
 endsnippet
 
 snippet flog "flask logging"
-log.info('\033[101m DEBUG \033[0m ${1:var} = %s${0} \n', $1)
+log.info('\033[101m DEBUG \033[0m (${1:var}) = %s${0} \n', ($1,))
 endsnippet
 
 snippet fstack "flask stack"
@@ -41,6 +41,6 @@ import traceback; import logging; log = logging.getLogger(__name__)
 log.info('\033[101m STACK \033[0m\n%s\n', ''.join(traceback.format_stack()))
 endsnippet
 
-snippet guid "insert guid"
+snippet uuidgen "insert guid"
 `uuidgen`
 endsnippet
