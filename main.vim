@@ -50,11 +50,17 @@ cmap w!! w !sudo tee >/dev/null %
 " normal backspace
 set backspace=indent,eol,start
 
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.force
-    !./install.py --system-libclang --clang-completer --go-completer --js-completer
-  endif
-endfunction
+" must be defined before the plug#begin below
+let g:coc_global_extensions = [
+\ 'coc-vmilsp',
+\ 'coc-snippets',
+\ 'coc-python',
+\ 'coc-json',
+\ 'coc-html',
+\ 'coc-css',
+\ 'coc-yaml',
+\ 'coc-sh'
+\ ]
 
 call plug#begin('~/.vim/plugged')
 
@@ -65,6 +71,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'xolox/vim-misc'
 
 " essentials
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -81,8 +88,6 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-"Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'xolox/vim-session'
 
 Plug 'moll/vim-bbye'
@@ -146,16 +151,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'bluz71/vim-nightfly-guicolors'
 
 call plug#end()
-
-" https://github.com/xolox/vim-session/issues/141
-"augroup CustomSessionLoadPost
-"  autocmd!
-"  au SessionLoadPost * call SessionLoadPostSettings()
-"augroup END
-"function! SessionLoadPostSettings()
-"  :YcmRestartServer
-"  au! CustomSessionLoadPost
-"endfunction
 
 " keys
 "inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
@@ -358,20 +353,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " iterm workaround
 imap ✠ <s-cr>
-
-" YouCompleteMe
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_auto_hover = 0
-let g:ycm_auto_trigger = 1
-let g:ycm_disable_signature_help = 1
-" virtualenv fixes
-let g:ycm_extra_conf_vim_data = []
-let g:ycm_global_ycm_extra_conf = '~/.vim/repo/ycm-settings.py'
-"map <leader>g :YcmCompleter GoToDefinition<CR>
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
