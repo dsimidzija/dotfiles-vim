@@ -3,6 +3,8 @@ set nocompatible
 set mouse=a
 set nomousehide
 set autoread
+set foldlevelstart=99
+set colorcolumn=120
 
 " automatically reload config when saving it
 augroup myvimrc
@@ -29,6 +31,16 @@ if !exists('s:pathogen_infected')
     let s:pathogen_infected = 1
 endif
 
+" https://github.com/xolox/vim-session/issues/141
+augroup CustomSessionLoadPost
+  autocmd!
+  au SessionLoadPost * call SessionLoadPostSettings()
+augroup END
+function! SessionLoadPostSettings()
+  :YcmRestartServer
+  au! CustomSessionLoadPost
+endfunction
+
 syntax on
 filetype plugin indent on
 
@@ -46,11 +58,18 @@ if !has('gui_running')
     let g:solarized_termcolors = 256
 endif
 let g:solarized_italic=0
+let ayucolor="dark"
+let g:gruvbox_contrast_dark = "hard"
 "colorscheme solarized
 "colorscheme papaya
 "colorscheme dracula
 colorscheme gruvbox
-let g:gruvbox_contrast_dark = "hard"
+"colorscheme gotham
+"colorscheme iceberg
+"colorscheme ayu " missing tabs
+"colorscheme nord
+"colorscheme jellybeans " missing tabs
+"colorscheme nightfly
 " gnome terminal needs this for some reason, colorscheme destroys the
 " background
 if &background != 'dark'
@@ -79,15 +98,20 @@ set ignorecase
 set smartcase
 
 " keys
-nnoremap <leader>n <plug>NERDTreeTabsToggle<CR>
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap <F1> <nop>
 inoremap <F1> <nop>
 vnoremap <F1> <nop>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :Gstatus<CR>
 nnoremap <F10> :GrepOptions<CR>
+nnoremap <F11> :tabdo :windo lcl\|ccl<CR>
 nnoremap <F12> :set hlsearch!<CR>:set hlsearch?<CR>
-nmap <leader>1 :NERDTreeFind<CR>
+" use tab to find file in nerdtree, and tab again to close nerdtree
+nnoremap <S-Tab> :NERDTreeFind<CR>
+"autocmd FileType nerdtree nnoremap <buffer> <Tab> :NERDTreeClose<CR>
+autocmd FileType nerdtree nnoremap <buffer> <S-Tab> :NERDTreeClose<CR>
+" delete buffer to clean up the active session
 nnoremap <leader>qq :Bdelete<CR>
 nnoremap <leader>QQ :bufdo :Bdelete<CR>
 " vim very magic regex
@@ -157,10 +181,14 @@ let g:NERDTreeMouseMode = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeShowLineNumbers = 1
 
+" NERDCommenter
+let g:NERDDefaultAlign = 'left'
+
 " gui font...
 if has('gui_running')
     "set guifont=Hack\ 13
-    set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
+    set guifont=Fira\ Code\ 14
+    "set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
 endif
 
 set expandtab
@@ -170,14 +198,19 @@ set shiftwidth=4
 " feck off
 command! W w
 command! Q q
+command! Qa qa
+command! QA qa
 command! Wq wq
 command! WQ wq
 command! Wa wa
 command! WA wa
+command! -nargs=1 Tabe tabe <args>
 " edit config in a new tab
 command! Conf tabnew ~/.vim/bundle/main.vim
 " edit snippet in a new tab
 command! -nargs=1 Snip tabnew ~/.vim/bundle/snippets/<args>.snippets
+" leave only current buffer open
+command! Only silent! execute "%bd|e#|bd#"
 
 " vim-session
 set sessionoptions-=help,options
@@ -200,7 +233,8 @@ endif
 if has('gui_running')
     let g:airline_powerline_fonts = 1
 endif
-let g:airline_theme = 'powerlineish'
+"let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'cool'
 
 " easytags / tagbar / coffeetags
 set tags=./.vimtags;/,vimtags;/,./tags;/,tags;/,~/.vimtags
@@ -228,17 +262,20 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_auto_hover = 0
+let g:ycm_auto_trigger = 1
+let g:ycm_disable_signature_help = 1
 " virtualenv fixes
 let g:ycm_extra_conf_vim_data = []
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/ycm-settings.py'
-map <leader>g :YcmCompleter GoTo<CR>
+map <leader>g :YcmCompleter GoToDefinition<CR>
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType javascript setlocal omnifunc=tern#Complete
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " phpcomplete
@@ -309,7 +346,7 @@ let g:pymode_rope = 0
 let g:pymode_virtualenv = 1
 
 " pandoc + pandoc markdown
-let g:pandoc#modules#disabled = ["folding", "bibliographies"]
+let g:pandoc#modules#disabled = ["formatting", "folding", "bibliographies"]
 let g:pandoc#formatting#mode = "hA"
 let g:pandoc#filetypes#pandoc_markdown = 0
 

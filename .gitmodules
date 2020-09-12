@@ -193,3 +193,21 @@
 [submodule "gv.vim"]
 	path = gv.vim
 	url = https://github.com/junegunn/gv.vim.git
+[submodule "iceberg.vim"]
+	path = iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim.git
+[submodule "ayu-vim"]
+	path = ayu-vim
+	url = https://github.com/ayu-theme/ayu-vim.git
+[submodule "nord-vim"]
+	path = nord-vim
+	url = https://github.com/arcticicestudio/nord-vim.git
+[submodule "git-messenger.vim"]
+	path = git-messenger.vim
+	url = https://github.com/rhysd/git-messenger.vim.git
+[submodule "jellybeans.vim"]
+	path = jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "vim-nightfly-guicolors"]
+	path = vim-nightfly-guicolors
+	url = https://github.com/bluz71/vim-nightfly-guicolors.git
