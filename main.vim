@@ -52,7 +52,7 @@ set backspace=indent,eol,start
 
 " must be defined before the plug#begin below
 let g:coc_global_extensions = [
-\ 'coc-vmilsp',
+\ 'coc-vimlsp',
 \ 'coc-snippets',
 \ 'coc-python',
 \ 'coc-json',
@@ -285,7 +285,7 @@ let g:NERDDefaultAlign = 'left'
 " gui font...
 if has('gui_running')
     "set guifont=Hack\ 13
-    set guifont=Fira\ Code\ 14
+    set guifont=Fira\ Code\ 14 " ttf-fira-code
     "set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
 endif
 

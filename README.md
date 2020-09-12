@@ -8,6 +8,8 @@ How to use
 
 First, install [vim-plug][].
 
+For `coc.vim` you will also need to install `yarn`.
+
 Then:
 
 	$ mkdir -p ~/.vim/repo
@@ -27,13 +29,14 @@ You may or may not need one or more of the following:
 Setup inside vim
 ================
 
-	PlugInstall
-	CocInstall coc-json coc-python coc-snippets coc-vimlsp coc-yaml
+	$ PlugInstall
 
 Maintenance
 ===========
 
-	PlugUpdate
-	CocUpdate
+	$ PlugUpdate
+
+	# and occasionally update vim-plug:
+	# PlugUpgrade
 
 [vim-plug]: https://github.com/junegunn/vim-plug
