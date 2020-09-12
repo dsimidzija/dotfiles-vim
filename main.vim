@@ -1,46 +1,11 @@
-
 set nocompatible
 set mouse=a
 set nomousehide
 set autoread
 set foldlevelstart=99
 set colorcolumn=120
-
-" automatically reload config when saving it
-augroup myvimrc
-    au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc,main.vim source $MYVIMRC
-augroup END
-
-autocmd BufNewFile,BufRead *.cson set filetype=coffee
-
-" forgot sudo...
-cmap w!! w !sudo tee >/dev/null %
-
-" normal backspace
-set backspace=indent,eol,start
-
-" quickfix stopped closing automatically for some reason..
-:autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
-
-let g:pathogen_disabled = [ 'tagbar', 'CoffeeTags', 'python-mode', 'easytags.vim' ]
-
-if !exists('s:pathogen_infected')
-    execute pathogen#infect()
-    execute pathogen#helptags()
-    let s:pathogen_infected = 1
-endif
-
-" https://github.com/xolox/vim-session/issues/141
-augroup CustomSessionLoadPost
-  autocmd!
-  au SessionLoadPost * call SessionLoadPostSettings()
-augroup END
-function! SessionLoadPostSettings()
-  :YcmRestartServer
-  au! CustomSessionLoadPost
-endfunction
-
+set updatetime=300
+set signcolumn=auto
 syntax on
 filetype plugin indent on
 
@@ -51,30 +16,6 @@ set showtabline=2
 set guioptions-=e
 " show cursorline
 set cursorline
-
-" colour scheme
-set background=dark
-if !has('gui_running')
-    let g:solarized_termcolors = 256
-endif
-let g:solarized_italic=0
-let ayucolor="dark"
-let g:gruvbox_contrast_dark = "hard"
-"colorscheme solarized
-"colorscheme papaya
-"colorscheme dracula
-colorscheme gruvbox
-"colorscheme gotham
-"colorscheme iceberg
-"colorscheme ayu " missing tabs
-"colorscheme nord
-"colorscheme jellybeans " missing tabs
-"colorscheme nightfly
-" gnome terminal needs this for some reason, colorscheme destroys the
-" background
-if &background != 'dark'
-    set background=dark
-endif
 
 " slightly more normal leader
 let mapleader = ','
@@ -97,17 +38,179 @@ set relativenumber number
 set ignorecase
 set smartcase
 
+" automatically reload config when saving it
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc,main.vim source $MYVIMRC
+augroup END
+
+" forgot sudo...
+cmap w!! w !sudo tee >/dev/null %
+
+" normal backspace
+set backspace=indent,eol,start
+
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --system-libclang --clang-completer --go-completer --js-completer
+  endif
+endfunction
+
+call plug#begin('~/.vim/plugged')
+
+" dependencies
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
+Plug 'xolox/vim-misc'
+
+" essentials
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'bling/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dkprice/vim-easygrep'
+Plug 'dsimidzija/vim-nerdtree-ignore'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/context_filetype.vim'
+Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+"Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'xolox/vim-session'
+
+Plug 'moll/vim-bbye'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'skammer/vim-css-color'
+Plug 'xolox/vim-easytags'
+Plug 'terryma/vim-expand-region'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'groenewege/vim-less'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'milkypostman/vim-togglelist'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'wesQ3/vim-windowswap'
+Plug 'sheerun/vim-polyglot'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'ryanoasis/vim-devicons'
+Plug 'mattn/emmet-vim'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'maralla/validator.vim'
+
+" filetypes & frameworks
+Plug 'python-mode/python-mode'
+Plug 'tpope/vim-rails'
+Plug 'andrewstuart/vim-kubernetes'
+Plug 'briancollins/vim-jst'
+Plug 'chrisbra/csv.vim'
+Plug 'duganchen/vim-soy'
+Plug 'evidens/vim-twig'
+Plug 'hashivim/vim-terraform'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+" git
+Plug 'airblade/vim-gitgutter'
+Plug 'int3/vim-extradite'
+Plug 'junegunn/gv.vim'
+Plug 'rhysd/git-messenger.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" unused ATM
+"Plug 'kchmck/vim-coffee-script'
+"Plug 'majutsushi/tagbar'
+"Plug 'shawncplus/phpcomplete.vim'
+"Plug 'vim-php/phpctags'
+"Plug 'vim-php/tagbar-phpctags.vim'
+"Plug 'vitalk/vim-simple-todo'
+
+" colorschemes
+Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'HenryNewcomer/vim-theme-papaya'
+Plug 'whatyouhide/vim-gotham'
+Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
+Plug 'cocopon/iceberg.vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'bluz71/vim-nightfly-guicolors'
+
+call plug#end()
+
+" https://github.com/xolox/vim-session/issues/141
+"augroup CustomSessionLoadPost
+"  autocmd!
+"  au SessionLoadPost * call SessionLoadPostSettings()
+"augroup END
+"function! SessionLoadPostSettings()
+"  :YcmRestartServer
+"  au! CustomSessionLoadPost
+"endfunction
+
 " keys
+"inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+"let g:coc_snippet_next = '<TAB>'
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <c-k> coc#refresh()
+nnoremap <silent> <c-f> :call <SID>show_documentation()<CR>
+"augroup coc
+"    autocmd!
+"    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+"augroup end
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+nmap <silent> <leader>g <Plug>(coc-definition)
+nmap <silent> <leader>r <Plug>(coc-references)
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap <F1> <nop>
 inoremap <F1> <nop>
 vnoremap <F1> <nop>
-nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :Gstatus<CR>
 nnoremap <F10> :GrepOptions<CR>
 nnoremap <F11> :tabdo :windo lcl\|ccl<CR>
 nnoremap <F12> :set hlsearch!<CR>:set hlsearch?<CR>
 " use tab to find file in nerdtree, and tab again to close nerdtree
+"nnoremap <S-Tab> :NERDTreeToggle<CR>
 nnoremap <S-Tab> :NERDTreeFind<CR>
 "autocmd FileType nerdtree nnoremap <buffer> <Tab> :NERDTreeClose<CR>
 autocmd FileType nerdtree nnoremap <buffer> <S-Tab> :NERDTreeClose<CR>
@@ -206,9 +309,9 @@ command! Wa wa
 command! WA wa
 command! -nargs=1 Tabe tabe <args>
 " edit config in a new tab
-command! Conf tabnew ~/.vim/bundle/main.vim
+command! Conf tabnew ~/.vim/repo/main.vim
 " edit snippet in a new tab
-command! -nargs=1 Snip tabnew ~/.vim/bundle/snippets/<args>.snippets
+command! -nargs=1 Snip tabnew ~/.vim/repo/snippets/<args>.snippets
 " leave only current buffer open
 command! Only silent! execute "%bd|e#|bd#"
 
@@ -238,7 +341,7 @@ let g:airline_theme = 'cool'
 
 " easytags / tagbar / coffeetags
 set tags=./.vimtags;/,vimtags;/,./tags;/,tags;/,~/.vimtags
-let g:tagbar_phpctags_bin='$HOME/.vim/bundle/phpctags/phpctags'
+"let g:tagbar_phpctags_bin='$HOME/.vim/bundle/phpctags/phpctags'
 let g:easytags_suppress_ctags_warning = 1
 let g:easytags_async = 1
 let g:easytags_auto_highlight = 0
@@ -248,7 +351,7 @@ let g:CoffeeAutoTagIncludeVars = 0
 "nmap <leader>t :TagbarToggle<CR>
 
 " UltiSnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/snippets']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/repo/snippets']
 let g:UltiSnipsExpandTrigger="<s-cr>"
 let g:UltiSnipsListSnippets="<c-s-cr>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
@@ -267,8 +370,8 @@ let g:ycm_auto_trigger = 1
 let g:ycm_disable_signature_help = 1
 " virtualenv fixes
 let g:ycm_extra_conf_vim_data = []
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/ycm-settings.py'
-map <leader>g :YcmCompleter GoToDefinition<CR>
+let g:ycm_global_ycm_extra_conf = '~/.vim/repo/ycm-settings.py'
+"map <leader>g :YcmCompleter GoToDefinition<CR>
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -340,10 +443,13 @@ let g:validator_python_checkers = ["flake8"]
 let g:validator_permament_sign = 1
 
 let g:python_highlight_all=1
-source ~/.vim/bundle/python.vim
+source ~/.vim/repo/python.vim
+let g:pymode_lint = 0
 let g:pymode_folding = 0
 let g:pymode_rope = 0
+let g:pymode_options_max_line_length = 120
 let g:pymode_virtualenv = 1
+let g:pymode_run = 0
 
 " pandoc + pandoc markdown
 let g:pandoc#modules#disabled = ["formatting", "folding", "bibliographies"]
@@ -358,3 +464,31 @@ function! JsonF()
 endfunction
 
 command! Json call JsonF()
+
+" enable external .vimrc
+"set exrc
+"set secure
+
+" colour scheme
+set background=dark
+if !has('gui_running')
+    let g:solarized_termcolors = 256
+endif
+let g:solarized_italic=0
+let ayucolor="dark"
+let g:gruvbox_contrast_dark = "hard"
+"colorscheme solarized
+"colorscheme papaya
+"colorscheme dracula
+colorscheme gruvbox
+"colorscheme gotham
+"colorscheme iceberg
+"colorscheme ayu " missing tabs
+"colorscheme nord
+"colorscheme jellybeans " missing tabs
+"colorscheme nightfly
+" gnome terminal needs this for some reason, colorscheme destroys the
+" background
+if &background != 'dark'
+    set background=dark
+endif

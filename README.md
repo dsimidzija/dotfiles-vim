@@ -6,26 +6,34 @@ My simple vim configuration.
 How to use
 ==========
 
-First, install [pathogen][].
+First, install [vim-plug][].
 
 Then:
 
-	$ cd ~/.vim/bundle
+	$ mkdir -p ~/.vim/repo
+	$ cd ~/.vim/repo
 	$ git clone https://github.com/dsimidzija/dotfiles-vim.git .
-	$ git submodule init
-	$ git submodule update
+	$ ln -s ~/.vim/repo/coc-settings.json ~/.vim/coc-settings.json
 
 Edit your ~/.vimrc and add the following:
 
-	source ~/.vim/bundle/main.vim
+	source ~/.vim/repo/main.vim
 
 You may or may not need one or more of the following:
 
- * exuberant-ctags
  * patched fonts for vim-airline
  * `CoffeeTags` ruby gem (`rvmsudo gem install CoffeeTags`) if using CoffeeScript
 
-After checking out all the submodules, go to ~/.vim/bundle/phpctags
-and run `make`.
+Setup inside vim
+================
 
-[pathogen]: https://github.com/tpope/vim-pathogen
+	PlugInstall
+	CocInstall coc-json coc-python coc-snippets coc-vimlsp coc-yaml
+
+Maintenance
+===========
+
+	PlugUpdate
+	CocUpdate
+
+[vim-plug]: https://github.com/junegunn/vim-plug
