@@ -103,10 +103,10 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'wesQ3/vim-windowswap'
 Plug 'sheerun/vim-polyglot'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'maralla/validator.vim'
+Plug 'majutsushi/tagbar'
 
 " filetypes & frameworks
 Plug 'python-mode/python-mode'
@@ -131,7 +131,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " unused ATM
 "Plug 'kchmck/vim-coffee-script'
-"Plug 'majutsushi/tagbar'
+"Plug 'ryanoasis/vim-devicons'  " killing performance with constant refreshes
 "Plug 'shawncplus/phpcomplete.vim'
 "Plug 'vim-php/phpctags'
 "Plug 'vim-php/tagbar-phpctags.vim'
@@ -258,6 +258,8 @@ nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 " surround shortcuts
 nmap ` ysiw`
+" toggle tagbar
+nmap <leader>t :TagbarToggle<CR>
 
 " easygrep
 let g:EasyGrepCommand = 1
@@ -311,7 +313,7 @@ command! -nargs=1 Snip tabnew ~/.vim/repo/snippets/<args>.snippets
 command! Only silent! execute "%bd|e#|bd#"
 
 " vim-session
-set sessionoptions-=help,options
+set sessionoptions-=help,options,blank
 let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 if !has('gui_running')
@@ -343,7 +345,6 @@ let g:easytags_auto_highlight = 0
 let g:easytags_dynamic_files = 1
 let g:CoffeeAutoTagFile = '.vimtags'
 let g:CoffeeAutoTagIncludeVars = 0
-"nmap <leader>t :TagbarToggle<CR>
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/repo/snippets']
