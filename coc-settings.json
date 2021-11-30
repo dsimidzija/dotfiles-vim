@@ -1,7 +1,10 @@
 {
-    "python.jediEnabled": true,
+    "pyright.enable": true,
     "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.flake8Args": [
+        "--per-file-ignores", "__init__.py:F401"
+    ],
     "yaml.schemas": {
         "kubernetes": "/k8s/**.yaml",
         "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v3.0/schema.json": "/docs/**.yaml"

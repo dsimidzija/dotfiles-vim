@@ -52,14 +52,15 @@ set backspace=indent,eol,start
 
 " must be defined before the plug#begin below
 let g:coc_global_extensions = [
-\ 'coc-vimlsp',
-\ 'coc-snippets',
-\ 'coc-python',
-\ 'coc-json',
-\ 'coc-html',
 \ 'coc-css',
+\ 'coc-docker',
+\ 'coc-html',
+\ 'coc-json',
+\ 'coc-pyright',
+\ 'coc-sh',
+\ 'coc-snippets',
+\ 'coc-vimlsp',
 \ 'coc-yaml',
-\ 'coc-sh'
 \ ]
 
 call plug#begin('~/.vim/plugged')
@@ -77,7 +78,7 @@ Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dkprice/vim-easygrep'
 Plug 'dsimidzija/vim-nerdtree-ignore'
-Plug 'jistr/vim-nerdtree-tabs'
+"Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
@@ -107,6 +108,7 @@ Plug 'mattn/emmet-vim'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'maralla/validator.vim'
 Plug 'majutsushi/tagbar'
+Plug 'wfxr/minimap.vim'
 
 " filetypes & frameworks
 Plug 'python-mode/python-mode'
@@ -118,7 +120,7 @@ Plug 'duganchen/vim-soy'
 Plug 'evidens/vim-twig'
 Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'vim-pandoc/vim-pandoc'
+"Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " git
@@ -127,7 +129,7 @@ Plug 'int3/vim-extradite'
 Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " unused ATM
 "Plug 'kchmck/vim-coffee-script'
@@ -261,13 +263,17 @@ nmap ` ysiw`
 " toggle tagbar
 nmap <leader>t :TagbarToggle<CR>
 
+nnoremap <leader>m :MinimapToggle<CR>
+" don't show trailing whitespace for minimap buffer
+autocmd FileType minimap DisableWhitespace
+
 " easygrep
 let g:EasyGrepCommand = 1
 let g:EasyGrepEveryMatch = 0
 let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepOpenWindowOnMatch = 1
 let g:EasyGrepRecursive = 1
-let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,node_modules,bower_components,*.py.orig,*.js.map,*.apib,htmlcov,_build,build"
+let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,*.egg-info,node_modules,bower_components,*.py.orig,*.js.map,*.apib,htmlcov,_build,build"
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
 let g:EasyGrepWindow = 0 " for compatibility with syntastic
 
@@ -295,7 +301,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-" feck off
+" feck off with the fast and incorrect typing
 command! W w
 command! Q q
 command! Qa qa
@@ -304,7 +310,7 @@ command! Wq wq
 command! WQ wq
 command! Wa wa
 command! WA wa
-command! -nargs=1 Tabe tabe <args>
+command! -complete=file -nargs=* Tabe tabe <args>
 " edit config in a new tab
 command! Conf tabnew ~/.vim/repo/main.vim
 " edit snippet in a new tab
@@ -313,7 +319,7 @@ command! -nargs=1 Snip tabnew ~/.vim/repo/snippets/<args>.snippets
 command! Only silent! execute "%bd|e#|bd#"
 
 " vim-session
-set sessionoptions-=help,options,blank
+set sessionoptions-=help,options,blank,minimap,nerdtree
 let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 if !has('gui_running')
@@ -413,6 +419,10 @@ autocmd FileType git setlocal foldmethod=manual
 " fixes window movement keys with gitv
 let g:Gitv_DoNotMapCtrlKey = 1
 
+" git messenger issue: https://github.com/rhysd/git-messenger.vim/issues/54
+let g:git_messenger_always_into_popup = v:true
+let g:git_messenger_include_diff = "current"
+
 " vim-extradite
 let g:extradite_resize = 0
 
@@ -442,35 +452,78 @@ let g:pandoc#filetypes#pandoc_markdown = 0
 function! JsonF()
     %s/'/"/ge
     %s/\vDecimal\("([0-9.]+)"\)/\1/ge
-    %!python -m json.tool
+    %!python -m json.tool --sort-keys
 endfunction
 
 command! Json call JsonF()
+
+" same as above, but for XML
+com! Xml :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
+
+function! ScratchCurrentBuffer(name)
+    set noswapfile
+    setlocal buftype=nofile
+    " runs file value_of_a:name
+    execute 'file' a:name
+endfunction
+
+function! ScratchF()
+    tabe
+    silent call ScratchCurrentBuffer("scratch")
+endfunction
+
+command! Scratch call ScratchF()
+nnoremap <silent> <leader>s :Scratch<CR>
+
+function! QuickDiffF()
+    " open a new tab, vertical split
+    " run scratch+diffthis on both buffers
+    " close entire tab with <leader>d
+    tabe
+    silent call ScratchCurrentBuffer("diff-right")
+    nnoremap <buffer> <leader>d :tabclose<CR>
+    diffthis
+    vsp
+    enew
+    silent call ScratchCurrentBuffer("diff-left")
+    nnoremap <buffer> <leader>d :tabclose<CR>
+    diffthis
+    normal <ctrl-h>
+endfunction
+
+command! QuickDiff call QuickDiffF()
+nnoremap <silent> <leader>d :QuickDiff<CR>
 
 " enable external .vimrc
 "set exrc
 "set secure
 
 " colour scheme
-set background=dark
+if &background != 'dark'
+    set background=dark
+endif
 if !has('gui_running')
     let g:solarized_termcolors = 256
 endif
 let g:solarized_italic=0
 let ayucolor="dark"
-let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_dark = 'hard'
+let g:current_colorscheme = 'gruvbox'
 "colorscheme solarized
 "colorscheme papaya
 "colorscheme dracula
-colorscheme gruvbox
+"colorscheme gruvbox
 "colorscheme gotham
 "colorscheme iceberg
 "colorscheme ayu " missing tabs
 "colorscheme nord
 "colorscheme jellybeans " missing tabs
 "colorscheme nightfly
+if !exists('g:colors_name') || g:colors_name != g:current_colorscheme
+    exec 'colorscheme' g:current_colorscheme
+endif
 " gnome terminal needs this for some reason, colorscheme destroys the
 " background
-if &background != 'dark'
-    set background=dark
-endif
+"if &background != 'dark'
+"    set background=dark
+"endif

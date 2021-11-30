@@ -24,6 +24,7 @@ Edit your ~/.vimrc and add the following:
 You may or may not need one or more of the following:
 
  * patched fonts for vim-airline
+ * `pacaur -S code-minimap` for minimap.vim
  * `CoffeeTags` ruby gem (`rvmsudo gem install CoffeeTags`) if using CoffeeScript
 
 Setup inside vim
