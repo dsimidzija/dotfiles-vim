@@ -202,7 +202,7 @@ nnoremap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap <F1> <nop>
 inoremap <F1> <nop>
 vnoremap <F1> <nop>
-nnoremap <F3> :Gstatus<CR>
+nnoremap <F3> :Git<CR>
 nnoremap <F10> :GrepOptions<CR>
 nnoremap <F11> :tabdo :windo lcl\|ccl<CR>
 nnoremap <F12> :set hlsearch!<CR>:set hlsearch?<CR>
