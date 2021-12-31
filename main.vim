@@ -341,6 +341,7 @@ if has('gui_running')
 endif
 "let g:airline_theme = 'powerlineish'
 let g:airline_theme = 'cool'
+let g:airline#extensions#virtualenv#enabled = 1
 
 " easytags / tagbar / coffeetags
 set tags=./.vimtags;/,vimtags;/,./tags;/,tags;/,~/.vimtags
@@ -433,6 +434,24 @@ let g:syntastic_eruby_ruby_quiet_messages =
 " validator
 let g:validator_python_checkers = ["flake8"]
 let g:validator_permament_sign = 1
+
+function! s:ChangeVirtualenv()
+    :py3 <<EOF
+import os
+import vim
+cwd = vim.eval("getcwd()")
+activate_this = os.path.join(cwd, ".venv", "bin", "activate_this.py")
+if os.path.exists(activate_this):
+    with open(activate_this) as f:
+        exec(f.read(), {'__file__': activate_this})
+    print(f"Switched virtualenv to {cwd}")
+EOF
+endfunction
+
+augroup virtualenv
+    autocmd!
+    autocmd DirChanged * call s:ChangeVirtualenv()
+augroup end
 
 let g:python_highlight_all=1
 source ~/.vim/repo/python.vim
