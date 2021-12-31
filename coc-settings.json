@@ -1,5 +1,7 @@
 {
     "pyright.enable": true,
+    "suggest.enablePreview": true,
+    "python.jediEnabled": false,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": false,
     "python.linting.flake8Args": [
