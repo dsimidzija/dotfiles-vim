@@ -1,7 +1,9 @@
 {
     "pyright.enable": true,
-    "suggest.enablePreview": true,
-    "python.jediEnabled": false,
+    "suggest.noselect": true,
+    "suggest.enablePreselect": true,
+    "suggest.selection": "first",
+    "inlayHint.enable": false,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": false,
     "python.linting.flake8Args": [
