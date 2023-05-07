@@ -100,7 +100,7 @@ Plug 'xolox/vim-easytags'
 Plug 'terryma/vim-expand-region'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'groenewege/vim-less'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'milkypostman/vim-togglelist'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'wesQ3/vim-windowswap'
@@ -277,7 +277,7 @@ let g:EasyGrepOpenWindowOnMatch = 1
 let g:EasyGrepRecursive = 1
 let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,*.egg-info,node_modules,bower_components,*.py.orig,*.js.map,*.apib,htmlcov,_build,build"
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
-let g:EasyGrepWindow = 0 " for compatibility with syntastic
+let g:EasyGrepWindow = 0 " for compatibility with syntastic, see :h syntastic-easygrep
 
 " nerdtree + vim-session workaround
 let g:nerdtree_tabs_open_on_gui_startup = 0
