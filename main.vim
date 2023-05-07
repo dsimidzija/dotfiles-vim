@@ -157,36 +157,31 @@ Plug 'bluz71/vim-nightfly-guicolors'
 call plug#end()
 
 " keys
-"inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
-"let g:coc_snippet_next = '<TAB>'
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <c-k> coc#refresh()
-nnoremap <silent> <c-f> :call <SID>show_documentation()<CR>
-"augroup coc
-"    autocmd!
-"    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-"augroup end
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-
-function! s:check_back_space() abort
+" BEGIN: coc-nvim tab completion
+function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+inoremap <silent><expr> <TAB>
+            \ coc#pum#visible() ? coc#pum#next(1):
+            \ CheckBackspace() ? "\<Tab>" :
+            \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR>
+            \ coc#pum#visible() ? coc#pum#confirm()
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" END: coc-nvim tab completion
+
+inoremap <silent><expr> <c-k> coc#refresh()
+nnoremap <silent> <c-f> :call <SID>show_documentation()<CR>
 nmap <silent> <leader>g <Plug>(coc-definition)
 nmap <silent> <leader>r <Plug>(coc-references)
+nmap <silent> <leader>rn <Plug>(coc-rename)
 "nmap <silent> gd <Plug>(coc-definition)
 "nmap <silent> gy <Plug>(coc-type-definition)
 "nmap <silent> gi <Plug>(coc-implementation)
