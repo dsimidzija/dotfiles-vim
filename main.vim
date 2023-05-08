@@ -194,6 +194,9 @@ function! s:show_documentation()
   endif
 endfunction
 
+" BEGIN: fugitive
+nnoremap <leader>G :tab G<CR>
+" END: fugitive
 
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap <F1> <nop>
@@ -249,7 +252,10 @@ vnoremap K :m '<-2<CR>gv=gv
 " easy ymd
 imap <Leader>ymd <C-R>=strftime("%Y-%m-%d")<CR>
 " quickfix open in new tab
-autocmd BufReadPost quickfix nnoremap <buffer> <C-t> <C-w><CR><C-w>T
+autocmd FileType qf nnoremap <buffer> <C-t> <C-w><CR><C-w>T
+" quickfix close on enter (EasyGrep used to do this automatically)
+autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
+
 " easygrep
 nnoremap <C-e> :copen<CR>
 " quick way to add blank lines
