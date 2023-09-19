@@ -22,6 +22,9 @@ set cursorline
 " slightly more normal leader
 let mapleader = ','
 
+" prefer vertical split while diffing
+set diffopt+=vertical
+
 " use system clipboard
 if has('unnamedplus')
     set clipboard=unnamedplus,unnamed
@@ -51,6 +54,9 @@ cmap w!! w !sudo tee >/dev/null %
 
 " normal backspace
 set backspace=indent,eol,start
+
+" close all sidebars if they are the last window in a tab
+source ~/.vim/repo/sidebars.vim
 
 " must be defined before the plug#begin below
 let g:coc_global_extensions = [
@@ -112,6 +118,7 @@ Plug 'jmcantrell/vim-virtualenv'
 Plug 'maralla/validator.vim'
 Plug 'majutsushi/tagbar'
 Plug 'wfxr/minimap.vim'
+Plug 'bfrg/vim-jqplay'
 
 " filetypes & frameworks
 Plug 'python-mode/python-mode'
