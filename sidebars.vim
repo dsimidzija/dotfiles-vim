@@ -15,6 +15,11 @@ function! IsSideBar(buf_nr)
 
     let term_buffers = term_list()
 
+    " 2024-02-29 - don't assume fugitive windows are sidebars
+    if buf_type ==# 'git'
+        return 0
+    endif
+
     if readonly
         return 1
 
