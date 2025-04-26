@@ -107,6 +107,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'xolox/vim-session'
+Plug 'voldikss/vim-floaterm'
 
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'skammer/vim-css-color'
@@ -212,6 +213,12 @@ endfunction
 " BEGIN: fugitive
 nnoremap <leader>G :tab G<CR>
 " END: fugitive
+
+nnoremap <leader>fo :FloatermNew<CR>
+nnoremap <leader>fn :FloatermNext<CR>
+nnoremap <leader>fp :FloatermPrev<CR>
+nnoremap <leader>ff :FloatermToggle<CR>
+tnoremap <leader>ff <cmd>:FloatermToggle<CR>
 
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap <F1> <nop>
