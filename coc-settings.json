@@ -1,8 +1,12 @@
 {
     "pyright.enable": true,
     "suggest.noselect": true,
-    "suggest.enablePreselect": true,
+    "suggest.enablePreselect": false,
     "suggest.selection": "first",
+    "suggest.defaultSortMethod": "none",
+    "snippets.ultisnips.enable": true,
+    "snippets.priority": 120,
+    "snippets.ultisnips.directories": ["~/.vim/repo/snippets/"],
     "inlayHint.enable": false,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": false,
@@ -11,6 +15,9 @@
     ],
     "yaml.schemas": {
         "kubernetes": "/k8s/**.yaml",
-        "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v3.0/schema.json": "/docs/**.yaml"
+        "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v3.0/schema.json": "/docs/**.yaml",
+        "https://gist.githubusercontent.com/simnalamburt/2c3263b783ed3f4471bda9ca901bb69f/raw/9c2cd17d6f4683cf80b6360a2d53b33fd49556d7/allow-all-json-schema.json": "**/kw/**/rules.yaml"
+    },
+    "snippets.ultisnips.pythonPrompt": false
     }
 }

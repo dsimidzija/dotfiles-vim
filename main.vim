@@ -62,6 +62,7 @@ set wildignore+=@*,.svn,.git,.vimtags,tags,*.sw?,*.egg-info,node_modules,bower_c
 " close all sidebars if they are the last window in a tab
 source ~/.vim/repo/sidebars.vim
 
+let g:coc_config_home = '~/.vim/repo'
 " must be defined before the plug#begin below
 let g:coc_global_extensions = [
 \ 'coc-css',
