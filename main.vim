@@ -87,6 +87,7 @@ Plug 'xolox/vim-misc'
 " essentials
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'Asheq/close-buffers.vim'
 Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dkprice/vim-easygrep'
@@ -104,7 +105,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'xolox/vim-session'
 
-Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'skammer/vim-css-color'
 Plug 'xolox/vim-easytags'
