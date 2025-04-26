@@ -56,6 +56,9 @@ cmap w!! w !sudo tee >/dev/null %
 " normal backspace
 set backspace=indent,eol,start
 
+" update also g:EasyGrepFilesToExclude
+set wildignore+=@*,.svn,.git,.vimtags,tags,*.sw?,*.egg-info,node_modules,bower_components,*.py.orig,*.js.map,*.apib,htmlcov,_build,build,poetry.lock
+
 " close all sidebars if they are the last window in a tab
 source ~/.vim/repo/sidebars.vim
 
