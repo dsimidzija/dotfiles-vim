@@ -92,6 +92,8 @@ Plug 'Asheq/close-buffers.vim'
 Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dkprice/vim-easygrep'
+" quickfix editing with <leader>g / <leader>v
+Plug 'sk1418/QFGrep'
 Plug 'dsimidzija/vim-nerdtree-ignore'
 "Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Lokaltog/vim-easymotion'
