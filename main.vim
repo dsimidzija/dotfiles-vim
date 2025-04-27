@@ -65,6 +65,7 @@ set wildignore+=@*,.svn,.git,.vimtags,tags,*.sw?,*.egg-info,node_modules,bower_c
 
 " close all sidebars if they are the last window in a tab
 source ~/.vim/repo/sidebars.vim
+source ~/.vim/repo/buffers.vim
 
 let g:coc_config_home = '~/.vim/repo'
 " must be defined before the plug#begin below
@@ -351,8 +352,10 @@ command! -complete=file -nargs=* Tabe tabe <args>
 command! Conf tabnew ~/.vim/repo/main.vim
 " edit snippet in a new tab
 command! -nargs=1 Snip tabnew ~/.vim/repo/snippets/<args>.snippets
-" leave only current buffer open
+" leave only currently active buffer open
 command! Only silent! execute "%bd|e#|bd#"
+" leave only currently visible buffers open (in all tabs/windows)
+command! OnlyVisible :call DeleteInactiveBufs()
 
 " vim-session
 set sessionoptions-=help,options,blank,minimap,nerdtree
