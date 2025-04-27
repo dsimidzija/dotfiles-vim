@@ -64,6 +64,9 @@ set backspace=indent,eol,start
 " update also g:EasyGrepFilesToExclude
 set wildignore+=@*,.svn,.git,.vimtags,tags,*.sw?,*.egg-info,node_modules,bower_components,*.py.orig,*.js.map,*.apib,htmlcov,_build,build,poetry.lock
 
+" for machine-specific stuff
+let s:hostname = substitute(system('hostname'), '\n', '', '')
+
 " close all sidebars if they are the last window in a tab
 if has('term_list')
     source ~/.vim/repo/sidebars.vim
@@ -335,13 +338,20 @@ let g:NERDDefaultAlign = 'left'
 
 " gui font...
 if has('gui_running')
-    "set guifont=Hack\ 13
+    " fonts to install: ttf-fira-code
+    if s:hostname == "NEMATODA"
+        let s:vim_font="Hack 13"
+        let s:nvim_font="Hack:h13"
+    else
+        let s:vim_font="Fira Code 16"
+        let s:nvim_font="Fira Code:h16"
+    endif
+
     if has('gui_gtk') && !has('nvim')
         " gvim needs a space between font name and size for some stupid reason
-        set guifont=Fira\ Code\ 18 " ttf-fira-code
-    "set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
+        let &guifont = s:vim_font
     else
-        set guifont=Fira\ Code:h18
+        let &guifont = s:nvim_font
     endif
 endif
 
