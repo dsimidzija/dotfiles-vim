@@ -318,6 +318,7 @@ let g:NERDTreeMouseMode = 1
 " chdir vim when nerdtree is chdir'd
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeShowLineNumbers = 1
+let g:NERDTreeMapToggleFileLines = ''
 
 " NERDCommenter
 let g:NERDDefaultAlign = 'left'
