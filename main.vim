@@ -7,6 +7,7 @@ set foldlevelstart=99
 set colorcolumn=120
 set updatetime=300
 set signcolumn=auto
+set termguicolors
 " for some reason...much better performance
 set guicursor=
 syntax on
