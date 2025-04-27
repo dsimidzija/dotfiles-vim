@@ -166,10 +166,11 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug 'cocopon/iceberg.vim'
-Plug 'ayu-theme/ayu-vim'
+Plug 'luxed/ayu-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -554,12 +555,13 @@ let g:solarized_italic=0
 let ayucolor="dark"
 let g:gruvbox_contrast_dark = 'hard'
 let g:current_colorscheme = 'gruvbox'
-"colorscheme solarized
+"colorscheme gruvbox "<-- ol' reliable
+"colorscheme onedark
 "colorscheme papaya
 "colorscheme dracula
-"colorscheme gruvbox
 "colorscheme gotham
 "colorscheme iceberg
+"colorscheme solarized
 "colorscheme ayu " missing tabs
 "colorscheme nord
 "colorscheme jellybeans " missing tabs
