@@ -298,12 +298,14 @@ nnoremap <leader>m :MinimapToggle<CR>
 autocmd FileType minimap DisableWhitespace
 
 " easygrep
-let g:EasyGrepCommand = 1
+let g:EasyGrepCommand = "rg"
+let g:EasyGrepRoot = "repository"
+let g:EasyGrepBinary = 0
 let g:EasyGrepEveryMatch = 0
 let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepOpenWindowOnMatch = 1
 let g:EasyGrepRecursive = 1
-let g:EasyGrepFilesToExclude=".svn,.git,.vimtags,tags,*.sw?,*.egg-info,node_modules,bower_components,*.py.orig,*.js.map,*.apib,htmlcov,_build,build"
+let g:EasyGrepFilesToExclude="@*,.svn,.git,.vimtags,tags,*.sw?,*.egg-info,node_modules,bower_components,*.py.orig,*.js.map,*.apib,htmlcov,_build,build,*poetry.lock"
 let g:EasyGrepSearchCurrentBufferDir = 0 " not very good when you have a file open in ~
 let g:EasyGrepWindow = 0 " for compatibility with syntastic, see :h syntastic-easygrep
 
@@ -424,17 +426,21 @@ highlight GitGutterChange ctermfg=yellow guifg=darkyellow
 highlight GitGutterDelete ctermfg=red guifg=darkred
 highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
-" CtrlP stuff
+" CtrlP stuff + ripgrep
+" https://elliotekj.com/posts/2016/11/22/setup-ctrlp-to-use-ripgrep-in-vim
 let g:ctrlp_by_filename = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
-let g:ctrlp_user_command = {
-\ 'types': {
-  \ 1: ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  \ },
-\ 'fallback': 'find %s -type f'
-\ }
+set grepprg=rg\ --vimgrep\ --hidden\ --color=never
+let g:ctrlp_user_command = 'rg %s --vimgrep --files --hidden --color=never --glob ""'
+let g:ctrlp_use_caching = 0
+"let g:ctrlp_user_command = {
+"\ 'types': {
+"  \ 1: ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+"  \ },
+"\ 'fallback': 'find %s -type f'
+"\ }
 
 " easymotion highlight colors
 highlight link EasyMotionTarget Search
@@ -557,6 +563,7 @@ endif
 let g:solarized_italic=0
 let ayucolor="dark"
 let g:gruvbox_contrast_dark = 'hard'
+
 let g:current_colorscheme = 'gruvbox'
 "colorscheme gruvbox "<-- ol' reliable
 "colorscheme onedark
