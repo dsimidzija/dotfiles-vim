@@ -64,7 +64,10 @@ set backspace=indent,eol,start
 set wildignore+=@*,.svn,.git,.vimtags,tags,*.sw?,*.egg-info,node_modules,bower_components,*.py.orig,*.js.map,*.apib,htmlcov,_build,build,poetry.lock
 
 " close all sidebars if they are the last window in a tab
-source ~/.vim/repo/sidebars.vim
+if has('term_list')
+    source ~/.vim/repo/sidebars.vim
+endif
+
 source ~/.vim/repo/buffers.vim
 
 let g:coc_config_home = '~/.vim/repo'
@@ -130,9 +133,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'mattn/emmet-vim'
 Plug 'jmcantrell/vim-virtualenv'
-Plug 'maralla/validator.vim'
+"Plug 'maralla/validator.vim'  " not compatible with neovim
 Plug 'majutsushi/tagbar'
-Plug 'bfrg/vim-jqplay'
+"Plug 'bfrg/vim-jqplay'  " not compatible with neovim
 
 " filetypes & frameworks
 Plug 'python-mode/python-mode'
@@ -332,8 +335,13 @@ let g:NERDDefaultAlign = 'left'
 " gui font...
 if has('gui_running')
     "set guifont=Hack\ 13
-    set guifont=Fira\ Code\ 14 " ttf-fira-code
+    if has('gui_gtk') && !has('nvim')
+        " gvim needs a space between font name and size for some stupid reason
+        set guifont=Fira\ Code\ 18 " ttf-fira-code
     "set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
+    else
+        set guifont=Fira\ Code:h18
+    endif
 endif
 
 set expandtab

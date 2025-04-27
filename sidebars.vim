@@ -13,15 +13,14 @@ function! IsSideBar(buf_nr)
     let buf_type = getbufvar(a:buf_nr, '&filetype')
     let readonly = getbufvar(a:buf_nr, '&readonly')
 
-    let term_buffers = term_list()
-
     " 2024-02-29 - don't assume fugitive windows are sidebars
     if buf_type ==# 'git'
         return 0
     endif
 
-    if readonly
-        return 1
+    " we don't want this - otherwise we can't open read only files at all
+    "if readonly
+    "    return 1
 
     elseif buf_type ==# 'qf'
         " QuickFix, LocationList:
@@ -41,7 +40,8 @@ function! IsSideBar(buf_nr)
         " Read Only
         return 1
 
-    elseif index(term_buffers, a:buf_nr) >= 0
+    elseif buf_type ==# 'terminal'
+        " terminal
         return 1
 
     else
