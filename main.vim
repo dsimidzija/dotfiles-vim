@@ -130,7 +130,6 @@ Plug 'mattn/emmet-vim'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'maralla/validator.vim'
 Plug 'majutsushi/tagbar'
-Plug 'wfxr/minimap.vim'
 Plug 'bfrg/vim-jqplay'
 
 " filetypes & frameworks
