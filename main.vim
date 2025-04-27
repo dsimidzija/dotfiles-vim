@@ -17,6 +17,10 @@ set guicursor=
 syntax on
 filetype plugin indent on
 
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
 " statusbar, tabline
 set laststatus=2
 set showtabline=2
@@ -355,10 +359,6 @@ if has('gui_running')
     endif
 endif
 
-set expandtab
-set tabstop=4
-set shiftwidth=4
-
 " feck off with the fast and incorrect typing
 command! W w
 command! Q q
@@ -369,10 +369,12 @@ command! WQ wq
 command! Wa wa
 command! WA wa
 command! -complete=file -nargs=* Tabe tabe <args>
+
 " edit config in a new tab
 command! Conf tabnew ~/.vim/repo/main.vim
 " edit snippet in a new tab
 command! -nargs=1 Snip tabnew ~/.vim/repo/snippets/<args>.snippets
+
 " leave only currently active buffer open
 command! Only silent! execute "%bd|e#|bd#"
 " leave only currently visible buffers open (in all tabs/windows)
