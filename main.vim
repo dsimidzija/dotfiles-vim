@@ -390,12 +390,6 @@ endif
 if isdirectory($HOME.'/work/projects')
     let g:sessions_project_path = '$HOME/work/projects'
 endif
-let s:hostname = substitute(system('hostname'), '\n', '', '')
-if s:hostname == "NEMATODA"
-    " workaround for the idiotic DELL XPS keyboard layout
-  noremap <PageUp> <nop>
-  noremap <PageDown> <nop>
-endif
 
 " airline
 if has('gui_running')
