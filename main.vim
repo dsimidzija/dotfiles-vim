@@ -75,6 +75,7 @@ let g:coc_global_extensions = [
 \ 'coc-html',
 \ 'coc-json',
 \ 'coc-pyright',
+\ 'coc-rust-analyzer',
 \ 'coc-sh',
 \ 'coc-snippets',
 \ 'coc-sql',
@@ -145,6 +146,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'rust-lang/rust.vim'
 
 " git
 Plug 'airblade/vim-gitgutter'
