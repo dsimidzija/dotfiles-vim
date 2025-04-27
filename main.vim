@@ -214,6 +214,9 @@ endfunction
 
 " BEGIN: fugitive
 nnoremap <leader>G :tab G<CR>
+" view log for the current file or selection
+nnoremap <leader>gl :0Gclog!<CR>
+vnoremap <leader>gl :Gclog!<CR>
 " END: fugitive
 
 nnoremap <leader>fo :FloatermNew<CR>
