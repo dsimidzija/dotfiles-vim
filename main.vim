@@ -8,6 +8,9 @@ set colorcolumn=120
 set updatetime=300
 set signcolumn=auto
 set termguicolors
+" fix E363: pattern uses more memory than 'maxmempattern'
+" https://github.com/vim/vim/issues/2049
+set maxmempattern=5000
 " for some reason...much better performance
 set guicursor=
 syntax on
