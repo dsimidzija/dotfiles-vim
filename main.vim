@@ -240,7 +240,7 @@ nnoremap <S-Tab> :NERDTreeFind<CR>
 autocmd FileType nerdtree nnoremap <buffer> <S-Tab> :NERDTreeClose<CR>
 " delete buffer to clean up the active session
 nnoremap <leader>qq :Bdelete<CR>
-nnoremap <leader>QQ :bufdo :Bdelete<CR>
+nnoremap <leader>QQ :bufdo :Bdelete hidden<CR>
 " vim very magic regex
 nnoremap / /\v
 vnoremap / /\v
