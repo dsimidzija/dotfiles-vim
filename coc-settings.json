@@ -1,23 +1,24 @@
 {
-    "pyright.enable": true,
-    "suggest.noselect": true,
-    "suggest.enablePreselect": false,
-    "suggest.selection": "first",
-    "suggest.defaultSortMethod": "none",
-    "snippets.ultisnips.enable": true,
-    "snippets.priority": 120,
-    "snippets.ultisnips.directories": ["~/.vim/repo/snippets/"],
+    "css.completion.completePropertyWithSemicolon": false
     "inlayHint.enable": false,
-    "python.linting.pylintEnabled": false,
+    "pyright.enable": true,
     "python.linting.flake8Enabled": false,
     "python.linting.flake8Args": [
         "--per-file-ignores", "__init__.py:F401"
     ],
+    "python.linting.pylintEnabled": false,
+    "rust-analyzer.cargo.cfgs": [],
+    "snippets.priority": 120,
+    "snippets.ultisnips.pythonPrompt": false
+    "snippets.ultisnips.directories": ["~/.vim/repo/snippets/"],
+    "snippets.ultisnips.enable": true,
+    "suggest.defaultSortMethod": "none",
+    "suggest.enablePreselect": false,
+    "suggest.noselect": true,
+    "suggest.selection": "first",
     "yaml.schemas": {
         "kubernetes": "/k8s/**.yaml",
         "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v3.0/schema.json": "/docs/**.yaml",
         "https://gist.githubusercontent.com/simnalamburt/2c3263b783ed3f4471bda9ca901bb69f/raw/9c2cd17d6f4683cf80b6360a2d53b33fd49556d7/allow-all-json-schema.json": "**/kw/**/rules.yaml"
     },
-    "snippets.ultisnips.pythonPrompt": false
-    }
 }
