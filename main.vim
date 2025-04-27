@@ -1,6 +1,7 @@
 set nocompatible
 set mouse=a
 set nomousehide
+set nohlsearch
 set belloff=all
 set autoread
 set foldlevelstart=99
