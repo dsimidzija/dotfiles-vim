@@ -143,7 +143,7 @@ Plug 'duganchen/vim-soy'
 Plug 'evidens/vim-twig'
 Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars'
-"Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " git
@@ -498,9 +498,12 @@ let g:pymode_virtualenv = 1
 let g:pymode_run = 0
 
 " pandoc + pandoc markdown
-let g:pandoc#modules#disabled = ["formatting", "folding", "bibliographies"]
-let g:pandoc#formatting#mode = "hA"
-let g:pandoc#filetypes#pandoc_markdown = 0
+" formatting, folding
+let g:pandoc#modules#disabled = ["bibliographies"]
+let g:pandoc#formatting#mode = "h"
+let g:pandoc#formatting#textwidth = 120
+let g:pandoc#spell#enabled = 0
+let g:pandoc#filetypes#pandoc_markdown = 1
 
 " used to format json in a buffer, as dumped by python in terminal
 function! JsonF()
