@@ -26,6 +26,11 @@ set laststatus=2
 set showtabline=2
 " prefer text tabs instead of gui
 set guioptions-=e
+if has("gui_gtk")
+    " hide menu and toolbar
+    set guioptions-=m
+    set guioptions-=T
+endif
 " show cursorline
 set cursorline
 
