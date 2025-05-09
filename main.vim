@@ -120,7 +120,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Asheq/close-buffers.vim'
 Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'dkprice/vim-easygrep'
 " quickfix editing with <leader>g / <leader>v
 Plug 'sk1418/QFGrep'
@@ -249,11 +250,25 @@ nnoremap <leader>gl :0Gclog!<CR>
 vnoremap <leader>gl :Gclog!<CR>
 " END: fugitive
 
+" BEGIN: fzf.vim
+nnoremap <C-p> :GFiles<CR>
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+
+let g:fzf_vim = {}
+let g:fzf_vim.preview_window = ['hidden,right,50%,<120(hidden,up,50%)', 'ctrl-p']
+let g:fzf_vim.buffers_jump = 1
+" maybe
+"imap <c-x><c-f> <plug>(fzf-complete-path)
+" END: fzf.vim
+
+" BEGIN: floaterm
 nnoremap <leader>fo :FloatermNew<CR>
 nnoremap <leader>fn :FloatermNext<CR>
 nnoremap <leader>fp :FloatermPrev<CR>
 nnoremap <leader>ff :FloatermToggle<CR>
 tnoremap <leader>ff <cmd>:FloatermToggle<CR>
+" END: floaterm
 
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap <F1> <nop>
