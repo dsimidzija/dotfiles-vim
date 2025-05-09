@@ -120,7 +120,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Asheq/close-buffers.vim'
 Plug 'bling/vim-airline'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'dkprice/vim-easygrep'
 " quickfix editing with <leader>g / <leader>v
