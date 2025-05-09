@@ -9,6 +9,8 @@ set colorcolumn=120
 set updatetime=300
 set signcolumn=auto
 set termguicolors
+" stops losing undo history for hidden buffers
+set hidden
 " fix E363: pattern uses more memory than 'maxmempattern'
 " https://github.com/vim/vim/issues/2049
 set maxmempattern=5000
@@ -20,6 +22,12 @@ filetype plugin indent on
 set expandtab
 set tabstop=4
 set shiftwidth=4
+
+" persistent undo
+set undofile
+set undodir=$HOME/.vim/repo/undodir
+set undolevels=1000
+set undoreload=10000
 
 " statusbar, tabline
 set laststatus=2
