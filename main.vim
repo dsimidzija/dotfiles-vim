@@ -539,6 +539,10 @@ augroup virtualenv
     autocmd DirChanged * call s:ChangeVirtualenv()
 augroup end
 
+augroup cursor_rules
+    autocmd! BufRead,BufNewFile *.mdc set filetype=markdown
+augroup END
+
 let g:python_highlight_all=1
 source ~/.vim/repo/python.vim
 let g:pymode_lint = 0
