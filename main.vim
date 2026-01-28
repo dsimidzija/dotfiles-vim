@@ -573,10 +573,9 @@ command! Json call JsonF()
 com! Xml :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
 function! ScratchCurrentBuffer(name)
-    set noswapfile
+    noswapfile hide enew
     setlocal buftype=nofile
-    " runs file value_of_a:name
-    execute 'file' a:name
+    setlocal bufhidden=hide
 endfunction
 
 function! ScratchF()
