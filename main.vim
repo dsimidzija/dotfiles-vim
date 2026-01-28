@@ -43,6 +43,9 @@ endif
 " show cursorline
 set cursorline
 
+set titlestring=%t\ [%l]\ -\ %{xolox#session#find_current_session()}
+set title
+
 " slightly more normal leader
 let mapleader = ','
 
