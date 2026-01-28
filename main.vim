@@ -32,6 +32,7 @@ set undoreload=10000
 " statusbar, tabline
 set laststatus=2
 set showtabline=2
+set cmdheight=1
 " prefer text tabs instead of gui
 set guioptions-=e
 if has("gui_gtk")
