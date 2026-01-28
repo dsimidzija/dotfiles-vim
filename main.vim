@@ -411,6 +411,8 @@ command! -nargs=1 Snip tabnew ~/.vim/repo/snippets/<args>.snippets
 command! Only silent! execute "%bd|e#|bd#"
 " leave only currently visible buffers open (in all tabs/windows)
 command! OnlyVisible :call DeleteInactiveBufs()
+" edit private notes file in current project
+command! Notes tabnew @NOTES
 
 " vim-session
 set sessionoptions-=help,options,blank,minimap,nerdtree
